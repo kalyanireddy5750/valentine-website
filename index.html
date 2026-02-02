@@ -1,23 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>💘 Valentine?</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="container">
-    <h1>Hey 💕</h1>
-    <h2>Will you be my Valentine? 💘</h2>
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: "Segoe UI", sans-serif;
+}
 
-    <div class="buttons">
-      <button id="yesBtn">YES 💖</button>
-      <button id="noBtn">NO 🙃</button>
-    </div>
+.container {
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  width: 400px;
+}
 
-    <p id="message"></p>
-  </div>
+h1 {
+  color: #ff4d6d;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 14px 32px;
+  font-size: 18px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background-color: #ff4d6d;
+  color: white;
+}
+
+#noBtn {
+  background-color: #adb5bd;
+}
+
