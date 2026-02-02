@@ -1,16 +1,26 @@
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const message = document.getElementById("message");
+document.addEventListener("DOMContentLoaded", () => {
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const message = document.getElementById("message");
+  const buttons = document.querySelector(".buttons");
 
-noBtn.addEventListener("mouseover", () => {
-  const x = Math.random() * 250;
-  const y = Math.random() * 80;
+  function moveNoButton() {
+    const containerWidth = buttons.offsetWidth - noBtn.offsetWidth;
+    const containerHeight = buttons.offsetHeight - noBtn.offsetHeight;
 
-  noBtn.style.left = x + "px";
-  noBtn.style.top = y + "px";
+    const x = Math.random() * containerWidth;
+    const y = Math.random() * containerHeight;
+
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+  }
+
+  // NO button runs on hover AND click
+  noBtn.addEventListener("mouseover", moveNoButton);
+  noBtn.addEventListener("click", moveNoButton);
+
+  // YES button works normally
+  yesBtn.addEventListener("click", () => {
+    message.innerText = "YAYYYY 💖🥰 You just made my day!";
+  });
 });
-
-yesBtn.addEventListener("click", () => {
-  message.innerHTML = "YAYYYY!! 💖🥰 You just made my day 💕";
-});
-
