@@ -26,7 +26,8 @@ h2 {
 
 .buttons {
   position: relative;
-  height: 80px;
+  height: 100px;
+  margin-top: 20px;
 }
 
 button {
@@ -51,6 +52,7 @@ button {
 #noBtn {
   background-color: #adb5bd;
   position: absolute;
+  left: 150px;
 }
 
 #message {
@@ -59,3 +61,4 @@ button {
   color: #ff4d6d;
   font-weight: bold;
 }
+
