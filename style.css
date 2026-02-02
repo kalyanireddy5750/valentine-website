@@ -10,55 +10,37 @@ body {
 
 .container {
   background: white;
-  padding: 40px;
-  border-radius: 20px;
+  padding: 50px;
+  border-radius: 25px;
   text-align: center;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  width: 400px;
 }
 
 h1 {
   color: #ff4d6d;
 }
 
-h2 {
-  margin-bottom: 30px;
-}
-
 .buttons {
-  position: relative;
-  height: 100px;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 
 button {
-  padding: 12px 25px;
+  padding: 14px 32px;
   font-size: 18px;
   border: none;
-  border-radius: 10px;
+  border-radius: 14px;
   cursor: pointer;
-  transition: 0.3s;
 }
 
 #yesBtn {
   background-color: #ff4d6d;
   color: white;
-  margin-right: 20px;
-}
-
-#yesBtn:hover {
-  background-color: #e63950;
 }
 
 #noBtn {
   background-color: #adb5bd;
-  position: absolute;
-  left: 150px;
 }
-
-#message {
-  margin-top: 25px;
-  font-size: 22px;
-  color: #ff4d6d;
-  font-weight: bold;
-}
-
