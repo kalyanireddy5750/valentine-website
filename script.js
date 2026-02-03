@@ -5,17 +5,17 @@ const threat = document.getElementById("threat");
 const cryEmoji = document.getElementById("cryEmoji");
 const bgMusic = document.getElementById("bgMusic");
 
-
 let clickCount = 0;
 
 const threats = [
   "Are you sure?",
   "Really sure...??? ☹️",
-  "Take a moment and think👿",
-  "You might regret this🔪",
+  "Take a moment and think 👿",
+  "You might regret this 🔪",
   "I’ll wait…"
 ];
 
+/* ❌ NO button logic */
 noBtn.addEventListener("click", () => {
   cryEmoji.style.display = "block";
 
@@ -31,41 +31,34 @@ noBtn.addEventListener("click", () => {
   }
 });
 
+/* ❤️ YES button logic */
 yesBtn.addEventListener("click", () => {
   message.innerText =
-    "I knew it.\n\n wowwwwwwww... congratulations you're officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh";
+    "I knew it.\n\nwowwwwwwww... congratulations you're officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💋";
 
   noBtn.style.display = "none";
   cryEmoji.style.display = "none";
   threat.innerText = "";
 
-  // 🔓 Reveal second photo after Yes
- const photoOverlay = document.getElementById("photoOverlay");
+  // Background photo overlay
+  const photoOverlay = document.getElementById("photoOverlay");
+  setTimeout(() => {
+    photoOverlay.style.opacity = "1";
+  }, 600);
 
-setTimeout(() => {
-  photoOverlay.style.opacity = "1";
-}, 600);
+  // Music
+  fadeInMusic(bgMusic);
 
-   // 🎵 Play music
- fadeInMusic(bgMusic);
-
-  const giftSection = document.getElementById("giftSection");
-
-setTimeout(() => {
-  giftSection.classList.add("show");
-}, 1800);
-
-setTimeout(() => {
-  document.getElementById("giftModal").classList.remove("hidden");
-}, 5000);
-
-
-  // 🎆 Soft fireworks (already in your code)
+  // Fireworks
   startFireworks();
+
+  // Gift popup after 5 seconds
+  setTimeout(() => {
+    document.getElementById("giftModal").classList.remove("hidden");
+  }, 5000);
 });
 
-
-/* 🎆 Soft Fireworks (stop after 5s) */
+/* 🎆 Fireworks */
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
@@ -119,6 +112,8 @@ function startFireworks() {
 
   animate();
 }
+
+/* 🎵 Music fade in */
 function fadeInMusic(audio) {
   audio.volume = 0;
   audio.play();
@@ -133,6 +128,8 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
+/* 🎁 Gift popup controls */
 function closeModal() {
   document.getElementById("giftModal").classList.add("hidden");
   document.getElementById("giftContent").innerHTML = "";
@@ -149,61 +146,36 @@ function openGift(type) {
       <button onclick="answer('me')">Me 🙈</button>
     `;
   }
-  
 
-  if (type === "memories") {
+  if (type === "letter") {
     content.innerHTML = `
-      <p><strong>Our Memories 💕</strong></p>
-      <img src="always.jpeg" style="width:70px;border-radius:10px;">
-      <img src="forever.jpeg" style="width:70px;border-radius:10px;">
-      <img src="sumo.jpeg" style="width:70px;border-radius:10px;">
+      <p><strong>Something I made just for you 🖤</strong></p>
+      <iframe 
+        src="Brown Illustrated Newspaper Trifold Brochure.pdf"
+        style="width:100%; height:420px; border:none; border-radius:12px; margin-top:12px;">
+      </iframe>
+      <p style="font-size:13px; margin-top:10px; opacity:0.7;">
+        Take your time… scroll slowly 🙂
+      </p>
     `;
   }
 
   if (type === "memories") {
-  closeModal(); // close gift popup
-  document.getElementById("memoryModal").classList.remove("hidden");
+    closeModal();
+    document.getElementById("memoryModal").classList.remove("hidden");
+  }
 }
 
-
- if (type === "letter") {
-  content.innerHTML = `
-    <p><strong>Something I made just for you 🖤</strong></p>
-
-    <iframe 
-      src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-      style="
-        width:100%;
-        height:420px;
-        border:none;
-        border-radius:12px;
-        margin-top:12px;
-      ">
-    </iframe>
-
-    <p style="font-size:13px; margin-top:10px; opacity:0.7;">
-      Take your time… scroll slowly 🙂
-    </p>
-  `;
-}
-  function closeMemory() {
+/* 🖼️ Memory popup close */
+function closeMemory() {
   document.getElementById("memoryModal").classList.add("hidden");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Quiz answer */
+function answer(choice) {
+  const content = document.getElementById("giftContent");
+  content.innerHTML =
+    choice === "me"
+      ? "Correct 💖 I fell first… and harder."
+      : "Wrong 😌 But I still love you.";
+}
