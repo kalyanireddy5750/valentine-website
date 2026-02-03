@@ -106,3 +106,13 @@ canvas {
   inset: 0;
   pointer-events: none;
 }
+.couple-photo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  border: 3px solid #f3c6c6;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
