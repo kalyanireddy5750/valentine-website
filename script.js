@@ -49,6 +49,13 @@ setTimeout(() => {
    // 🎵 Play music
  fadeInMusic(bgMusic);
 
+  const giftSection = document.getElementById("giftSection");
+
+setTimeout(() => {
+  giftSection.classList.add("show");
+}, 1800);
+
+
 
   // 🎆 Soft fireworks (already in your code)
   startFireworks();
@@ -123,6 +130,7 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
 
 
 
