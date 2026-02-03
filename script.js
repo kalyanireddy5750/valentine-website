@@ -10,7 +10,9 @@ let clickCount = 0;
 
 const threats = [
   "Are you sure?",
-  "Take a moment and think.",
+  "Really sure...??? ☹️",
+  "Take a moment and think👿",
+  "You might regret this🔪",
   "I’ll wait…"
 ];
 
@@ -121,6 +123,7 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
 
 
 
