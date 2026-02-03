@@ -29,14 +29,22 @@ noBtn.addEventListener("click", () => {
 
 yesBtn.addEventListener("click", () => {
   message.innerText =
-    "I knew it.\n\nwowwwwwwww...congratulations you're officially the luckiest man on this planet to be my valentine..anyways love you to the moon and back my sweet boy.. ummmaaahhh\nI’d love nothing more than calling you my Valentine.";
+    "I knew it.\n\n wowwwwwwww... congratulations you're officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💋";
 
   noBtn.style.display = "none";
   cryEmoji.style.display = "none";
   threat.innerText = "";
 
+  // 🔓 Reveal second photo after Yes
+  const secondPhoto = document.getElementById("secondPhoto");
+  setTimeout(() => {
+    secondPhoto.classList.add("show");
+  }, 800);
+
+  // 🎆 Soft fireworks (already in your code)
   startFireworks();
 });
+
 
 /* 🎆 Soft Fireworks (stop after 5s) */
 const canvas = document.querySelector("canvas");
@@ -92,5 +100,6 @@ function startFireworks() {
 
   animate();
 }
+
 
 
