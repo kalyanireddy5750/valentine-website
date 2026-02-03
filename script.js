@@ -3,6 +3,8 @@ const noBtn = document.getElementById("noBtn");
 const message = document.getElementById("message");
 const threat = document.getElementById("threat");
 const cryEmoji = document.getElementById("cryEmoji");
+const bgMusic = document.getElementById("bgMusic");
+
 
 let clickCount = 0;
 
@@ -29,7 +31,7 @@ noBtn.addEventListener("click", () => {
 
 yesBtn.addEventListener("click", () => {
   message.innerText =
-    "I knew it.\n\n wowwwwwwww... congratulations you're officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💋";
+    "I knew it.\n\n wowwwwwwww... congratulations you're officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh";
 
   noBtn.style.display = "none";
   cryEmoji.style.display = "none";
@@ -100,6 +102,7 @@ function startFireworks() {
 
   animate();
 }
+
 
 
 
