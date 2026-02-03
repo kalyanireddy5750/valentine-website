@@ -10,11 +10,11 @@ body {
 
 .container {
   background: white;
-  padding: 50px;
+  padding: 40px;
   border-radius: 25px;
   text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  width: 400px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  width: 420px;
 }
 
 h1 {
@@ -22,108 +22,10 @@ h1 {
 }
 
 .buttons {
-  position: relative;        /* KEY */
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 30px;
-  height: 80px;
-}
-
-.modal {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
-}
-
-.hidden { display: none; }
-
-.modal-box {
-  background: white;
-  padding: 25px;
-  border-radius: 18px;
-  width: 320px;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-}
-
-.modal-buttons {
-  display: grid;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.trapBtn {
-  padding: 10px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  background: #ffd6e0;
-  font-size: 15px;
-}
-
-
-button {
-  padding: 14px 32px;
-  font-size: 18px;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-#yesBtn {
-  background-color: #ff4d6d;
-  color: white;
-}
-
-#noBtn {
-  position: absolute;        /* KEY */
-  left: 200px;               /* initial position */
-  background-color: #adb5bd;
-}
-.hidden {
-  display: none;
-}
-
-.quiz {
-  margin-top: 25px;
-  background: #fff0f5;
-  padding: 20px;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.quiz-options {
-  display: grid;
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.quiz-options button {
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  background: #ffd6e0;
-  transition: transform 0.2s;
-}
-
-.quiz-options button:hover {
-  transform: scale(1.05);
-}
-
-.hidden { display: none; }
-
-.buttons {
   display: flex;
   justify-content: center;
   gap: 28px;
-  margin-top: 28px;
+  margin-top: 25px;
 }
 
 .yesBtn {
@@ -133,25 +35,22 @@ button {
   border-radius: 16px;
   cursor: pointer;
   background: #ff4d6d;
-  color: #fff;
-  transition: transform .25s, box-shadow .25s;
+  color: white;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .yesBtn:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 22px rgba(255,77,109,.35);
+  box-shadow: 0 12px 22px rgba(255,77,109,0.35);
+}
+
+.hidden {
+  display: none;
 }
 
 #finalMessage {
-  margin-top: 26px;
+  margin-top: 28px;
   font-size: 20px;
   color: #ff4d6d;
   font-weight: 600;
-  text-align: center;
 }
-
-
-
-
-
-
