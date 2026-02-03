@@ -38,10 +38,12 @@ yesBtn.addEventListener("click", () => {
   threat.innerText = "";
 
   // 🔓 Reveal second photo after Yes
-  const secondPhoto = document.getElementById("secondPhoto");
-  setTimeout(() => {
-    secondPhoto.classList.add("show");
-  }, 800);
+ const photoOverlay = document.getElementById("photoOverlay");
+
+setTimeout(() => {
+  photoOverlay.style.opacity = "1";
+}, 600);
+
    // 🎵 Play music
  fadeInMusic(bgMusic);
 
@@ -119,6 +121,7 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
 
 
 
