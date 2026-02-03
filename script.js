@@ -1,67 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
   const yesBtn = document.getElementById("yesBtn");
-  const noBtn = document.getElementById("noBtn");
+  const quizBox = document.getElementById("quiz");
+  const quizQuestion = document.getElementById("quizQuestion");
+  const quizOptions = document.getElementById("quizOptions");
   const message = document.getElementById("message");
-  const buttons = document.querySelector(".buttons");
 
-  const modal = document.getElementById("evilModal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalText = document.getElementById("modalText");
-  const trapBtns = document.querySelectorAll(".trapBtn");
-
-  // --- NO button movement ---
-  function moveNoButton() {
-    const maxX = buttons.clientWidth - noBtn.offsetWidth;
-    const maxY = buttons.clientHeight - noBtn.offsetHeight;
-    noBtn.style.left = `${Math.random() * maxX}px`;
-    noBtn.style.top = `${Math.random() * maxY}px`;
-  }
-
-  noBtn.addEventListener("mouseenter", moveNoButton);
-  noBtn.addEventListener("mousedown", (e) => {
-    e.preventDefault();
-    openTrap();
-  });
-
-  // extra evil: if cursor gets close
-  buttons.addEventListener("mousemove", (e) => {
-    const r = noBtn.getBoundingClientRect();
-    const d = Math.abs(e.clientX - r.left) + Math.abs(e.clientY - r.top);
-    if (d < 140) moveNoButton();
-  });
-
-  // --- Trap modal logic ---
-  let trapIndex = 0;
-  const traps = [
-    { t: "Hmm 🤔", m: "Overthinking detected. Try again 😌" },
-    { t: "Aw 🙈", m: "Shy is cute… but YES is cuter 💖" },
-    { t: "Later? 😅", m: "Later became now. Surprise!" },
-    { t: "Plot twist 😈", m: "Every road leads to YES." }
+  const quiz = [
+    {
+      q: "How cute do you think we look together? 😌",
+      options: ["Very cute", "Extremely cute", "Unfairly cute"]
+    },
+    {
+      q: "What would our perfect date be? 💕",
+      options: ["Long walk & talks", "Food + laughs", "All of the above"]
+    },
+    {
+      q: "Do I make your days a little better? ☀️",
+      options: ["Yes", "Obviously", "100% yes"]
+    }
   ];
 
-  function openTrap() {
-    modal.classList.remove("hidden");
-    const cur = traps[trapIndex % traps.length];
-    modalTitle.innerText = cur.t;
-    modalText.innerText = cur.m;
-    trapIndex++;
+  let current = 0;
+
+  function loadQuestion() {
+    quizQuestion.innerText = quiz[current].q;
+    quizOptions.innerHTML = "";
+
+    quiz[current].options.forEach(opt => {
+      const btn = document.createElement("button");
+      btn.innerText = opt;
+      btn.onclick = nextQuestion;
+      quizOptions.appendChild(btn);
+    });
   }
 
-  trapBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      openTrap(); // loop forever
-    });
-  });
+  function nextQuestion() {
+    current++;
+    if (current < quiz.length) {
+      loadQuestion();
+    } else {
+      finishQuiz();
+    }
+  }
 
-  // --- YES wins ---
-  yesBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-    document.querySelector(".container").innerHTML = `
-      <h1>YAYYYY 💖🥰</h1>
-      <p style="font-size:18px;margin-top:10px;">
-        You just made the best choice today ✨<br>
-        Officially my Valentine 💌
-      </p>
+  function finishQuiz() {
+    quizBox.innerHTML = `
+      <h2>One last question… 💖</h2>
+      <p>Will you be my Valentine? 💌</p>
+      <button id="finalYes">YES 😍</button>
     `;
+
+    document.getElementById("finalYes").onclick = () => {
+      quizBox.innerHTML = `
+        <h1>YAYYYYY 💖🥰</h1>
+        <p>You just made me really really happy 💕</p>
+      `;
+    };
+  }
+
+  yesBtn.addEventListener("click", () => {
+    yesBtn.style.display = "none";   // optional
+    quizBox.classList.remove("hidden");
+    loadQuestion();
   });
 });
