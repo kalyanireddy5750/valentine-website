@@ -115,4 +115,16 @@ canvas {
   border: 3px solid #f3c6c6;
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
 }
+.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
