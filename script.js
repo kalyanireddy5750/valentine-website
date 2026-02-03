@@ -7,9 +7,9 @@ const cryEmoji = document.getElementById("cryEmoji");
 let clickCount = 0;
 
 const threats = [
-  "Are you sure? 😠",
-  "Think about it 🔪",
-  "Last chance 😈"
+  "Are you sure?",
+  "Take a moment and think.",
+  "I’ll wait…"
 ];
 
 noBtn.addEventListener("click", () => {
@@ -19,57 +19,76 @@ noBtn.addEventListener("click", () => {
     threat.innerText = threats[clickCount];
   }
 
-  const scale = 1 + clickCount * 0.5;
-  yesBtn.style.transform = `scale(${scale})`;
-
+  yesBtn.style.transform = `scale(${1 + clickCount * 0.4})`;
   clickCount++;
 
   if (clickCount > threats.length) {
     noBtn.style.display = "none";
-    yesBtn.style.transform = "scale(4)";
   }
 });
 
 yesBtn.addEventListener("click", () => {
   message.innerText =
-    "WOWWWWWWWW 💖✨ Congratulations you're officially the luckiest man on this planet to be my Valentine 🥰💋 Love you to the moon and back my sweet boy… ummmaaahhh 😘😘";
+    "I knew it.\n\nYou make my world softer, warmer, and happier just by being in it.\nI’d love nothing more than calling you my Valentine.";
 
   noBtn.style.display = "none";
   cryEmoji.style.display = "none";
   threat.innerText = "";
 
-  startConfetti();
+  startFireworks();
 });
 
-/* 🎉 Confetti */
-const canvas = document.getElementById("confetti");
+/* 🎆 Soft Fireworks (stop after 5s) */
+const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-function startConfetti() {
-  let pieces = [];
-  for (let i = 0; i < 150; i++) {
-    pieces.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 6 + 4,
-      d: Math.random() * 10,
-      color: `hsl(${Math.random() * 360},100%,50%)`
-    });
+let particles = [];
+let animationId;
+
+function startFireworks() {
+  const startTime = Date.now();
+
+  function createFirework() {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height * 0.5;
+
+    for (let i = 0; i < 30; i++) {
+      particles.push({
+        x,
+        y,
+        angle: Math.random() * Math.PI * 2,
+        speed: Math.random() * 2 + 1,
+        life: 60
+      });
+    }
   }
 
-  function draw() {
+  function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    pieces.forEach(p => {
+
+    particles.forEach((p, i) => {
+      p.x += Math.cos(p.angle) * p.speed;
+      p.y += Math.sin(p.angle) * p.speed;
+      p.life--;
+
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.color;
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(0,0,0,0.4)";
       ctx.fill();
-      p.y += p.d;
-      if (p.y > canvas.height) p.y = 0;
+
+      if (p.life <= 0) particles.splice(i, 1);
     });
-    requestAnimationFrame(draw);
+
+    if (Date.now() - startTime < 5000) {
+      if (Math.random() < 0.05) createFirework();
+      animationId = requestAnimationFrame(animate);
+    } else {
+      cancelAnimationFrame(animationId);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
   }
-  draw();
+
+  animate();
 }
