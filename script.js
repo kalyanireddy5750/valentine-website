@@ -43,8 +43,8 @@ yesBtn.addEventListener("click", () => {
     secondPhoto.classList.add("show");
   }, 800);
    // 🎵 Play music
-  bgMusic.volume = 0.4;
-  bgMusic.play();
+ fadeInMusic(bgMusic);
+
 
   // 🎆 Soft fireworks (already in your code)
   startFireworks();
@@ -119,6 +119,7 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
 
 
 
