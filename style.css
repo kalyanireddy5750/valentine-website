@@ -85,5 +85,38 @@ button {
   left: 200px;               /* initial position */
   background-color: #adb5bd;
 }
+.hidden {
+  display: none;
+}
+
+.quiz {
+  margin-top: 25px;
+  background: #fff0f5;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.quiz-options {
+  display: grid;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.quiz-options button {
+  padding: 12px;
+  border-radius: 14px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: #ffd6e0;
+  transition: transform 0.2s;
+}
+
+.quiz-options button:hover {
+  transform: scale(1.05);
+}
+
+
 
 
