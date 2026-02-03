@@ -125,6 +125,36 @@ canvas {
   opacity: 1;
   transform: translateY(0);
 }
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+#photoOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("hum.jpeg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+
+/* keep text above overlay */
+.container > *:not(#photoOverlay) {
+  position: relative;
+  z-index: 2;
+}
+
+/* soft white veil so text is readable */
+#photoOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.65);
+}
+
 
 
 
