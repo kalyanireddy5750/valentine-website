@@ -1,107 +1,108 @@
 * {
   box-sizing: border-box;
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Poppins", system-ui, sans-serif;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  background: linear-gradient(135deg, #fde2e4, #fadadd);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 16px;
 }
 
 .container {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
+  background: #fffaf7;
+  padding: 28px 24px;
+  border-radius: 22px;
   text-align: center;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
 }
 
 .photo {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   object-fit: cover;
   border-radius: 50%;
-  margin-bottom: 15px;
-  border: 4px solid #ff4d6d;
+  margin-bottom: 14px;
+  border: 3px solid #f3c6c6;
 }
 
 h1 {
-  color: #ff4d6d;
-  margin: 10px 0;
-  font-size: 24px;
+  margin: 8px 0;
+  font-size: 22px;
+  font-weight: 500;
+  color: #111;
 }
 
 h2 {
-  margin-bottom: 25px;
+  font-size: 17px;
+  font-weight: 400;
   color: #333;
+  margin-bottom: 28px;
 }
 
 .name {
-  color: #ff4d6d;
+  font-weight: 500;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 14px;
 }
 
 button {
-  padding: 15px 25px;
-  font-size: 18px;
+  padding: 14px 26px;
+  font-size: 16px;
+  border-radius: 30px;
   border: none;
-  border-radius: 14px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #yesBtn {
-  background-color: #ff4d6d;
-  color: white;
+  background: #f4b6c2;
+  color: #111;
 }
 
 #noBtn {
-  background-color: #6c757d;
-  color: white;
+  background: #e0e0e0;
+  color: #333;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
 }
 
 #cryEmoji {
-  font-size: 40px;
+  margin-top: 14px;
+  font-size: 30px;
   display: none;
-  animation: shake 0.5s infinite;
-}
-
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+  opacity: 0.7;
 }
 
 #threat {
-  margin-top: 15px;
-  font-size: 18px;
-  color: #c9184a;
+  margin-top: 12px;
+  font-size: 15px;
+  color: #444;
 }
 
 #message {
-  margin-top: 20px;
-  font-size: 20px;
-  color: #ff4d6d;
-  font-weight: bold;
+  margin-top: 22px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #111;
+  line-height: 1.6;
 }
 
 canvas {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   pointer-events: none;
 }
