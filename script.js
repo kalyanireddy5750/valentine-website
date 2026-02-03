@@ -1,36 +1,38 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const yesButtons = document.querySelectorAll(".yesBtn");
-  const finalMessage = document.getElementById("finalMessage");
+const yesBtn = document.getElementById("yesBtn");
+const noBtn = document.getElementById("noBtn");
+const message = document.getElementById("message");
+const threat = document.getElementById("threat");
 
-  const messageText =
-    "wowwwww you’re the most luckiest person ever in this solar system to be my valentine...anyways love you lots and lots..ummaaahhhh";
+let clickCount = 0;
 
-  function showMessage() {
-    finalMessage.textContent = messageText;
-    finalMessage.classList.remove("hidden");
+const threats = [
+  "Are you sure? 😠",
+  "Think about it 🔪",
+  "Last chance 😈"
+];
 
-    // Heart animation
-    for (let i = 0; i < 35; i++) {
-      const heart = document.createElement("div");
-      heart.textContent = "💖";
-      heart.style.position = "fixed";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.top = "-10px";
-      heart.style.fontSize = (16 + Math.random() * 18) + "px";
-      heart.style.transition = "transform 3s linear";
-      document.body.appendChild(heart);
+yesBtn.addEventListener("click", () => {
+  message.innerText =
+    "wowwwwwwww... congratulations you're officially the luckiest man on this planet to be my valentine 💖✨ anyways love you to the moon and back my sweet boy.. ummmaaahhh 😘💋";
+  
+  threat.innerText = "";
+  noBtn.style.display = "none";
+});
 
-      setTimeout(() => {
-        heart.style.transform = "translateY(110vh)";
-      }, 10);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 3000);
-    }
+noBtn.addEventListener("click", () => {
+  if (clickCount < threats.length) {
+    threat.innerText = threats[clickCount];
   }
 
-  yesButtons.forEach(button => {
-    button.addEventListener("click", showMessage);
-  });
+  // Increase YES button size
+  const currentSize = 1 + clickCount * 0.4;
+  yesBtn.style.transform = `scale(${currentSize})`;
+
+  clickCount++;
+
+  // After last threat, hide NO button
+  if (clickCount >= threats.length + 1) {
+    noBtn.style.display = "none";
+    yesBtn.style.transform = "scale(4)";
+  }
 });
