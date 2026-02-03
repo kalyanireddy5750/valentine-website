@@ -172,14 +172,6 @@ function openGift(type) {
   }
 }
 
-function answer(who) {
-  const content = document.getElementById("giftContent");
-  content.innerHTML =
-    who === "you"
-      ? "Wrong 😌 I fell first, harder."
-      : "Correct 💖 And I still am.";
-}
-
 
 
 
