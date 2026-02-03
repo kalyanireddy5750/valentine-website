@@ -160,6 +160,12 @@ function openGift(type) {
     `;
   }
 
+  if (type === "memories") {
+  closeModal(); // close gift popup
+  document.getElementById("memoryModal").classList.remove("hidden");
+}
+
+
  if (type === "letter") {
   content.innerHTML = `
     <p><strong>Something I made just for you 🖤</strong></p>
@@ -180,6 +186,11 @@ function openGift(type) {
     </p>
   `;
 }
+  function closeMemory() {
+  document.getElementById("memoryModal").classList.add("hidden");
+}
+
+
 
 
 
