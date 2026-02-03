@@ -133,6 +133,53 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+function closeModal() {
+  document.getElementById("giftModal").classList.add("hidden");
+  document.getElementById("giftContent").innerHTML = "";
+}
+
+function openGift(type) {
+  const content = document.getElementById("giftContent");
+
+  if (type === "quiz") {
+    content.innerHTML = `
+      <p><strong>Quick question 😌</strong></p>
+      <p>Who fell first?</p>
+      <button onclick="answer('you')">You 😏</button>
+      <button onclick="answer('me')">Me 🙈</button>
+    `;
+  }
+
+  if (type === "memories") {
+    content.innerHTML = `
+      <p><strong>Our Memories 💕</strong></p>
+      <img src="always.jpeg" style="width:70px;border-radius:10px;">
+      <img src="forever.jpeg" style="width:70px;border-radius:10px;">
+      <img src="sumo.jpeg" style="width:70px;border-radius:10px;">
+    `;
+  }
+
+  if (type === "letter") {
+    content.innerHTML = `
+      <p><strong>A Letter for You 💌</strong></p>
+      <p>
+        Loving you feels easy and warm.<br>
+        Thank you for choosing me every day.<br>
+        I’m always yours.
+      </p>
+    `;
+  }
+}
+
+function answer(who) {
+  const content = document.getElementById("giftContent");
+  content.innerHTML =
+    who === "you"
+      ? "Wrong 😌 I fell first, harder."
+      : "Correct 💖 And I still am.";
+}
+
+
 
 
 
