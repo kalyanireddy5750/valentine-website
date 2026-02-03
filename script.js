@@ -148,38 +148,6 @@ function openGift(type) {
       <button onclick="answer('you')">You 😏</button>
       <button onclick="answer('me')">Me 🙈</button>
     `;
-
-    if (type === "quiz") {
-  content.innerHTML = `
-    <p><strong>Be honest 😌</strong></p>
-    <p>Who loves more?</p>
-    <button onclick="answer('you')">You 💪</button>
-    <button onclick="answer('me')">Me 💕</button>
-    <button onclick="answer('equal')">Equal 🤝</button>
-  `;
-      if (type === "quiz") {
-  content.innerHTML = `
-    <p><strong>This one’s easy 💕</strong></p>
-    <p>What’s my favourite thing about you?</p>
-    <button onclick="answer('smile')">Your smile 😊</button>
-    <button onclick="answer('voice')">Your voice 🎧</button>
-    <button onclick="answer('heart')">Your heart ❤️</button>
-    <button onclick="answer('all')">Everything 😌</button>
-  `;
-        if (type === "quiz") {
-  content.innerHTML = `
-    <p><strong>Last one 🥰</strong></p>
-    <p>Do you know how much I love you?</p>
-    <button onclick="answer('lot')">A lot 💗</button>
-    <button onclick="answer('more')">More than I show</button>
-    <button onclick="answer('infinite')">Infinitely ♾️</button>
-  `;
-}
-
-
-
-
-
   }
   
 
