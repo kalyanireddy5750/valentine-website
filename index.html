@@ -6,36 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" autoplay loop>
+  <!-- 🎵 Background Music (plays after YES via JS) -->
+  <audio id="bgMusic" loop>
     <source src="song.mp3.mpeg" type="audio/mpeg">
   </audio>
 
+  <!-- 💖 Main Valentine Card -->
   <div class="container">
     <div id="photoOverlay"></div>
 
+    <!-- First photo -->
     <img src="us.jpeg" alt="Us" class="couple-photo">
-    <div class="gift-grid">
-  <div class="gift-card">
-    <img src="always.jpeg" alt="Always">
-    <p>Always 💕</p>
-  </div>
-
-  <div class="gift-card">
-    <img src="forever.jpeg" alt="Forever">
-    <p>Forever ♾️</p>
-  </div>
-
-  <div class="gift-card">
-    <img src="sumo.jpeg" alt="Us">
-    <p>Us 🌷</p>
-  </div>
-</div>
-
-    
-
 
     <h1>HEYYY <span class="name">MY LITTLE STAR</span></h1>
     <h2>Will you be my Valentine? 💝</h2>
@@ -48,24 +32,32 @@
     <p id="cryEmoji">😭</p>
     <p id="threat"></p>
     <p id="message"></p>
-    <img src="hum.jpeg" alt="Us again" class="couple-photo hidden" id="secondPhoto">
-
   </div>
 
+  <!-- 🎆 Fireworks Canvas -->
   <canvas id="confetti"></canvas>
 
+  <!-- 🎁 POPUP MODAL (appears after 5 seconds) -->
+  <div id="giftModal" class="modal hidden">
+    <div class="modal-content">
+
+      <h3>Something for You</h3>
+
+      <div class="gift-grid">
+        <img src="always.jpeg" class="gift-img" onclick="openGift('quiz')" alt="Always">
+        <img src="forever.jpeg" class="gift-img" onclick="openGift('memories')" alt="Forever">
+        <img src="sumo.jpeg" class="gift-img" onclick="openGift('letter')" alt="Us">
+      </div>
+
+      <!-- Dynamic content loads here -->
+      <div id="giftContent"></div>
+
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+  <!-- JS -->
   <script src="script.js"></script>
-  <audio id="bgMusic" loop>
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
