@@ -29,7 +29,7 @@ noBtn.addEventListener("click", () => {
 
 yesBtn.addEventListener("click", () => {
   message.innerText =
-    "I knew it.\n\nwowwwwwwww...congratulations you're officially the luckiest man on this planet to be my valentine..anyways love you to the moon and back my sweet boy.. ummmaaahhh"\nI’d love nothing more than calling you my Valentine.";
+    "I knew it.\n\nwowwwwwwww...congratulations you're officially the luckiest man on this planet to be my valentine..anyways love you to the moon and back my sweet boy.. ummmaaahhh\nI’d love nothing more than calling you my Valentine.";
 
   noBtn.style.display = "none";
   cryEmoji.style.display = "none";
@@ -92,4 +92,5 @@ function startFireworks() {
 
   animate();
 }
+
 
