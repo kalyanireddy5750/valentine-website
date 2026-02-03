@@ -55,6 +55,9 @@ setTimeout(() => {
   giftSection.classList.add("show");
 }, 1800);
 
+setTimeout(() => {
+  document.getElementById("giftModal").classList.remove("hidden");
+}, 5000);
 
 
   // 🎆 Soft fireworks (already in your code)
@@ -130,6 +133,7 @@ function fadeInMusic(audio) {
     }
   }, 200);
 }
+
 
 
 
