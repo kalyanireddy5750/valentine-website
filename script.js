@@ -160,17 +160,28 @@ function openGift(type) {
     `;
   }
 
-  if (type === "letter") {
-    content.innerHTML = `
-      <p><strong>A Letter for You 💌</strong></p>
-      <p>
-        Loving you feels easy and warm.<br>
-        Thank you for choosing me every day.<br>
-        I’m always yours.
-      </p>
-    `;
-  }
+ if (type === "letter") {
+  content.innerHTML = `
+    <p><strong>Something I made just for you 🖤</strong></p>
+
+    <iframe 
+      src="Brown Illustrated Newspaper Trifold Brochure.pdf"
+      style="
+        width:100%;
+        height:420px;
+        border:none;
+        border-radius:12px;
+        margin-top:12px;
+      ">
+    </iframe>
+
+    <p style="font-size:13px; margin-top:10px; opacity:0.7;">
+      Take your time… scroll slowly 🙂
+    </p>
+  `;
 }
+
+
 
 
 
