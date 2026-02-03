@@ -42,6 +42,9 @@ yesBtn.addEventListener("click", () => {
   setTimeout(() => {
     secondPhoto.classList.add("show");
   }, 800);
+   // 🎵 Play music
+  bgMusic.volume = 0.4;
+  bgMusic.play();
 
   // 🎆 Soft fireworks (already in your code)
   startFireworks();
@@ -102,6 +105,22 @@ function startFireworks() {
 
   animate();
 }
+function fadeInMusic(audio) {
+  audio.volume = 0;
+  audio.play();
+
+  let vol = 0;
+  const fade = setInterval(() => {
+    if (vol < 0.4) {
+      vol += 0.02;
+      audio.volume = vol;
+    } else {
+      clearInterval(fade);
+    }
+  }, 200);
+}
+
+
 
 
 
