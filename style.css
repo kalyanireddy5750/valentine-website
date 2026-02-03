@@ -223,6 +223,69 @@ canvas {
   opacity: 1;
   transform: translateY(0);
 }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff7f4;
+  padding: 26px;
+  border-radius: 22px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.modal h3 {
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.gift-grid {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.gift-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 14px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gift-img:hover {
+  transform: scale(1.05);
+}
+
+#giftContent {
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.close-btn {
+  margin-top: 18px;
+  padding: 8px 20px;
+  border-radius: 18px;
+  border: none;
+  background: #f4b6c2;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+
 
 
 
