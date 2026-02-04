@@ -343,6 +343,40 @@ canvas {
   }
 }
 
+/* ===== Gift 3 (Letter / Newspaper) Improvements ===== */
+
+/* Make modal wider for reading */
+.modal-content {
+  max-width: 900px;
+  width: 95%;
+}
+
+/* Allow scrolling inside modal */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Improve iframe (PDF) viewing */
+.modal-content iframe {
+  width: 100%;
+  height: 80vh;
+  border-radius: 12px;
+  background: #fff;
+}
+
+/* Mobile-friendly */
+@media (max-width: 600px) {
+  .modal-content {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .modal-content iframe {
+    height: 70vh;
+  }
+}
+
 
 
 
