@@ -55,10 +55,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fadeInMusic(bgMusic);
     startFireworks();
+document.getElementById("openGiftsBtn").classList.remove("hidden");
 
-    setTimeout(() => {
-      giftModal.classList.remove("hidden");
-    }, 5000);
+document.getElementById("openGiftsBtn").onclick = () => {
+  giftModal.classList.remove("hidden");
+};
+
+    
   });
 
   // ===============================
@@ -227,3 +230,4 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
+
