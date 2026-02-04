@@ -183,15 +183,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 🎁 Gift 3 – Letter (PDF)
     if (type === "letter") {
-      content.innerHTML = `
-        <p style="text-align:center;"><strong>Something I made just for you 🖤</strong></p>
-        <iframe src="Brown Illustrated Newspaper Trifold Brochure.pdf"></iframe>
-        <p style="font-size:13px; opacity:0.7; text-align:center;">
-          Scroll slowly… it’s meant to be read gently 🙂
-        </p>
-      `;
-    }
-  };
+  content.innerHTML = `
+    <p style="text-align:center; margin-bottom:12px;">
+      <strong>Something I made just for you 🖤</strong>
+    </p>
+
+    <div style="
+      width: 100%;
+      height: 70vh;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #ddd;
+    ">
+      <iframe 
+        src="Brown Illustrated Newspaper Trifold Brochure.pdf"
+        style="
+          width: 100%;
+          height: 100%;
+          border: none;
+        ">
+      </iframe>
+    </div>
+
+    <p style="
+      font-size:13px;
+      margin-top:10px;
+      opacity:0.7;
+      text-align:center;
+    ">
+      Scroll slowly… it’s meant to be read gently 🙂
+    </p>
+  `;
+}
+
 
   // ===============================
   // QUIZ ANSWER (EXPOSED)
@@ -221,3 +245,4 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
+
