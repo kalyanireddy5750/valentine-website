@@ -147,18 +147,22 @@ function openGift(type) {
     `;
   }
 
-  if (type === "letter") {
-    content.innerHTML = `
-      <p><strong>Something I made just for you 🖤</strong></p>
-      <iframe 
-        src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-        style="width:100%; height:600px; border:none; border-radius:20px; margin-top:18px;">
-      </iframe>
-      <p style="font-size:13px; margin-top:10px; opacity:0.7;">
-        Take your time… and after reading this sach mein accept karna hai mujhe..nhai toh maar dhoongaa tumhe 🙂
-      </p>
-    `;
-  }
+ if (type === "letter") {
+  content.innerHTML = `
+    <p style="text-align:center; margin-bottom:12px;">
+      <strong>Something I made just for you 🖤</strong>
+    </p>
+
+    <iframe 
+      src="docs/Brown Illustrated Newspaper Trifold Brochure.pdf">
+    </iframe>
+
+    <p style="font-size:13px; margin-top:10px; opacity:0.7; text-align:center;">
+      Scroll slowly… it’s meant to be read gently 🙂
+    </p>
+  `;
+}
+
 
   if (type === "memories") {
     closeModal();
@@ -191,5 +195,6 @@ function playMemorySong(num) {
   currentSong.volume = 0.6;
   currentSong.play();
 }
+
 
 
