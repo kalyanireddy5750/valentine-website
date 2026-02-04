@@ -377,6 +377,90 @@ canvas {
   }
 }
 
+/* ===============================
+   FULLSCREEN MEMORIES MODAL
+================================ */
+
+#memoryModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 245, 248, 0.98);
+  z-index: 9999;
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
+}
+
+/* Fullscreen content */
+.memory-content {
+  max-width: 1100px;
+  margin: 60px auto 40px;
+  padding: 20px;
+  animation: scaleUp 0.4s ease;
+}
+
+/* Close button (always visible) */
+#memoryModal .close-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  background: #ffb6c1;
+  color: #333;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* ===============================
+   POLAROID ANIMATIONS
+================================ */
+
+.polaroid {
+  opacity: 0;
+  transform: translateY(30px) scale(0.96);
+  animation: floatIn 0.8s ease forwards;
+}
+
+/* Stagger effect */
+.polaroid:nth-child(1) { animation-delay: 0.1s; }
+.polaroid:nth-child(2) { animation-delay: 0.25s; }
+.polaroid:nth-child(3) { animation-delay: 0.4s; }
+
+/* Second row delay */
+.polaroid-chain:nth-child(2) .polaroid:nth-child(1) { animation-delay: 0.55s; }
+.polaroid-chain:nth-child(2) .polaroid:nth-child(2) { animation-delay: 0.7s; }
+.polaroid-chain:nth-child(2) .polaroid:nth-child(3) { animation-delay: 0.85s; }
+
+/* ===============================
+   ANIMATIONS
+================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+@keyframes floatIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .memory-content {
+    margin-top: 80px;
+  }
+}
+
 
 
 
