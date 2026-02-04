@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const giftModal = document.getElementById("giftModal");
   const memoryModal = document.getElementById("memoryModal");
 
-  if (!yesBtn || !noBtn) return; // safety guard
+  if (!yesBtn || !noBtn) return;
 
   // ===============================
   // NO BUTTON LOGIC
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // MODALS (EXPOSED)
+  // MODALS
   // ===============================
   window.closeModal = function () {
     giftModal.classList.add("hidden");
@@ -154,12 +154,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ===============================
-  // GIFTS (EXPOSED)
+  // GIFTS
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
 
-    // 🎁 Gift 1 – Quiz
     if (type === "quiz") {
       content.innerHTML = `
         <div class="quiz-box">
@@ -174,51 +173,34 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    // 🎁 Gift 2 – Memories
     if (type === "memories") {
       closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
 
-    // 🎁 Gift 3 – Letter (PDF)
     if (type === "letter") {
-  content.innerHTML = `
-    <p style="text-align:center; margin-bottom:12px;">
-      <strong>Something I made just for you 🖤</strong>
-    </p>
+      content.innerHTML = `
+        <p style="text-align:center; margin-bottom:12px;">
+          <strong>Something I made just for you 🖤</strong>
+        </p>
 
-    <div style="
-      width: 100%;
-      height: 70vh;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid #ddd;
-    ">
-      <iframe 
-        src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-        style="
-          width: 100%;
-          height: 100%;
-          border: none;
-        ">
-      </iframe>
-    </div>
+        <div style="width:100%; height:70vh; border-radius:16px; overflow:hidden;">
+          <iframe 
+            src="Brown Illustrated Newspaper Trifold Brochure.pdf"
+            style="width:100%; height:100%; border:none;">
+          </iframe>
+        </div>
 
-    <p style="
-      font-size:13px;
-      margin-top:10px;
-      opacity:0.7;
-      text-align:center;
-    ">
-      Scroll slowly… it’s meant to be read gently 🙂
-    </p>
-  `;
-}
-
+        <p style="font-size:13px; opacity:0.7; text-align:center;">
+          Scroll slowly… it’s meant to be read gently 🙂
+        </p>
+      `;
+    }
+  };
 
   // ===============================
-  // QUIZ ANSWER (EXPOSED)
+  // QUIZ ANSWER
   // ===============================
   window.quizAnswer = function (choice) {
     const result = document.getElementById("quizResult");
@@ -229,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // ===============================
-  // MEMORY SONGS (EXPOSED)
+  // MEMORY SONGS
   // ===============================
   let currentSong = null;
 
@@ -245,4 +227,3 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 });
-
