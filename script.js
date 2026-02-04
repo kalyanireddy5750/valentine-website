@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgMusic = document.getElementById("bgMusic");
   const giftModal = document.getElementById("giftModal");
   const memoryModal = document.getElementById("memoryModal");
+  const openGiftsBtn = document.getElementById("openGiftsBtn");
+  const letterMusic = document.getElementById("letterMusic");
 
   if (!yesBtn || !noBtn) return;
 
@@ -18,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // NO BUTTON LOGIC
   // ===============================
   let clickCount = 0;
-
   const threats = [
     "Are you sure?",
     "Really sure...??? ☹️",
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ===============================
-  // YES BUTTON LOGIC
+  // YES BUTTON
   // ===============================
   yesBtn.addEventListener("click", () => {
     message.innerText =
@@ -55,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fadeInMusic(bgMusic);
     startFireworks();
-document.getElementById("openGiftsBtn").classList.remove("hidden");
 
-document.getElementById("openGiftsBtn").onclick = () => {
-  giftModal.classList.remove("hidden");
-};
-
-    
+    if (openGiftsBtn) {
+      openGiftsBtn.classList.remove("hidden");
+      openGiftsBtn.onclick = () => {
+        giftModal.classList.remove("hidden");
+      };
+    }
   });
 
   // ===============================
@@ -128,7 +129,6 @@ document.getElementById("openGiftsBtn").onclick = () => {
   // ===============================
   function fadeInMusic(audio) {
     if (!audio) return;
-
     audio.volume = 0;
     audio.play();
 
@@ -156,6 +156,12 @@ document.getElementById("openGiftsBtn").onclick = () => {
     document.body.style.overflow = "auto";
   };
 
+  window.closeLetter = function () {
+    document.getElementById("letterModal").classList.add("hidden");
+    document.body.style.overflow = "auto";
+    stopLetterMusic();
+  };
+
   // ===============================
   // GIFTS
   // ===============================
@@ -163,46 +169,57 @@ document.getElementById("openGiftsBtn").onclick = () => {
     const content = document.getElementById("giftContent");
 
     if (type === "quiz") {
-  content.innerHTML = `
-    <div class="quiz-box">
-      <p class="quiz-title">Tiny quiz before your gift 😌</p>
-      <p class="quiz-question">Who fell first?</p>
-
-      <div class="quiz-options">
-        <button onclick="quizStep1('you')">You 😏</button>
-        <button onclick="quizStep1('me')">Me 🙈</button>
-      </div>
-
-      <p id="quizResult" class="quiz-result"></p>
-    </div>
-  `;
-}
-
+      content.innerHTML = `
+        <div class="quiz-box">
+          <p class="quiz-title">Tiny quiz before your gift 😌</p>
+          <p class="quiz-question">Who fell first?</p>
+          <div class="quiz-options">
+            <button onclick="quizStep1('you')">You 😏</button>
+            <button onclick="quizStep1('me')">Me 🙈</button>
+          </div>
+          <p id="quizResult" class="quiz-result"></p>
+        </div>
+      `;
+    }
 
     if (type === "memories") {
       closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
+
     if (type === "letter") {
-  closeModal();
-  document.body.style.overflow = "hidden";
-  document.getElementById("letterModal").classList.remove("hidden");
-}
-
-
-   
-     
+      closeModal();
+      document.body.style.overflow = "hidden";
+      document.getElementById("letterModal").classList.remove("hidden");
+      playLetterMusic();
+    }
+  };
 
   // ===============================
-  // QUIZ ANSWER
+  // QUIZ
   // ===============================
-  window.quizAnswer = function (choice) {
+  window.quizStep1 = function (choice) {
     const result = document.getElementById("quizResult");
     result.innerText =
       choice === "me"
         ? "Correct 💗 I fell first… and I still fall every day."
-        : "Haha 😌 maybe… but I definitely fell harder.";
+        : "Haha 😌 maybe… but I fell harder.";
+
+    setTimeout(() => {
+      result.innerHTML += `
+        <br><br>
+        <strong>Next question 😏</strong><br>
+        What do I love most about you?<br><br>
+        <button onclick="quizEnd()">Everything 💕</button>
+        <button onclick="quizEnd()">Your smile 😌</button>
+      `;
+    }, 1200);
+  };
+
+  window.quizEnd = function () {
+    document.getElementById("quizResult").innerHTML =
+      "Correct 💖 The answer is always… YOU. Always you.";
   };
 
   // ===============================
@@ -215,42 +232,25 @@ document.getElementById("openGiftsBtn").onclick = () => {
       currentSong.pause();
       currentSong.currentTime = 0;
     }
-
     currentSong = new Audio(`songs/song${num}.mp3`);
     currentSong.volume = 0.6;
     currentSong.play();
   };
 
+  // ===============================
+  // LETTER MUSIC
+  // ===============================
+  function playLetterMusic() {
+    if (!letterMusic) return;
+    letterMusic.volume = 0.5;
+    letterMusic.currentTime = 0;
+    letterMusic.play();
+  }
+
+  function stopLetterMusic() {
+    if (!letterMusic) return;
+    letterMusic.pause();
+    letterMusic.currentTime = 0;
+  }
+
 });
-window.closeLetter = function () {
-  document.getElementById("letterModal").classList.add("hidden");
-  document.body.style.overflow = "auto";
-};
-  window.quizStep1 = function (choice) {
-  const result = document.getElementById("quizResult");
-
-  result.innerText =
-    choice === "me"
-      ? "Correct 💗 I fell first… and I still fall every day."
-      : "Haha 😌 maybe… but I fell harder.";
-
-  setTimeout(() => {
-    result.innerHTML += `
-      <br><br>
-      <strong>Next question 😏</strong><br>
-      What do I love most about you?<br><br>
-
-      <button onclick="quizEnd()">Everything 💕</button>
-      <button onclick="quizEnd()">Your smile 😌</button>
-    `;
-  }, 1200);
-};
-
-window.quizEnd = function () {
-  document.getElementById("quizResult").innerHTML =
-    "Correct 💖 The answer is always… YOU. Always you.";
-};
-
-
-
-
