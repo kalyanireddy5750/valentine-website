@@ -179,3 +179,16 @@ function answer(choice) {
       ? "Correct 💖 I fell first… and harder."
       : "Wrong 😌 But I still love you.";
 }
+let currentSong = null;
+
+function playMemorySong(num) {
+  if (currentSong) {
+    currentSong.pause();
+    currentSong.currentTime = 0;
+  }
+
+  currentSong = new Audio(`song${num}.mp3`);
+  currentSong.volume = 0.6;
+  currentSong.play();
+}
+
