@@ -12,7 +12,7 @@ const threats = [
   "Really sure...??? ☹️",
   "Take a moment and think 👿",
   "You might regret this 🔪",
-  "I’ll wait…"
+  "Don't make me murder you donkey no.1"
 ];
 
 /* ❌ NO button logic */
@@ -152,10 +152,10 @@ function openGift(type) {
       <p><strong>Something I made just for you 🖤</strong></p>
       <iframe 
         src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-        style="width:100%; height:420px; border:none; border-radius:12px; margin-top:12px;">
+        style="width:100%; height:600px; border:none; border-radius:20px; margin-top:18px;">
       </iframe>
       <p style="font-size:13px; margin-top:10px; opacity:0.7;">
-        Take your time… scroll slowly 🙂
+        Take your time… and after reading this sach mein accept karna hai mujhe..nhai toh maar dhoongaa tumhe 🙂
       </p>
     `;
   }
@@ -191,4 +191,5 @@ function playMemorySong(num) {
   currentSong.volume = 0.6;
   currentSong.play();
 }
+
 
