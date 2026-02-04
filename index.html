@@ -2,23 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Be My Valentine 🥺</title>
+  <title>Be My Valentine 💖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- 🎵 Background Music (played after YES) -->
+  <!-- Background music (only after YES) -->
   <audio id="bgMusic" loop>
     <source src="song.mp3.mpeg" type="audio/mpeg">
   </audio>
 
-  <!-- 💖 Main Valentine Card -->
-  <div class="container">
+  <!-- Gift 3 music -->
+  <audio id="letterMusic" loop>
+    <source src="songs/song3.mp3" type="audio/mpeg">
+  </audio>
 
-    <!-- Main photo -->
-    <img src="photos/us.jpeg" alt="Us" class="couple-photo">
+  <!-- Main card -->
+  <div class="container">
+    <img src="photos/us.jpeg" class="couple-photo" alt="Us">
 
     <h1>HEYYY <span class="name">MY LITTLE STAR</span></h1>
     <h2>Will you be my Valentine? 💝</h2>
@@ -31,94 +34,55 @@
     <p id="cryEmoji">😭</p>
     <p id="threat"></p>
     <p id="message"></p>
-    <button id="openGiftsBtn" class="hidden">Open this 🎁</button>
 
+    <button id="openGiftsBtn" class="hidden">Open this 🎁</button>
   </div>
 
-  <!-- 🎆 Fireworks Canvas -->
   <canvas id="confetti"></canvas>
 
-  <!-- 🎁 Gift Popup -->
+  <!-- Gift selector -->
   <div id="giftModal" class="modal hidden">
     <div class="modal-content">
-      <h3>Something for You</h3>
+      <h3>Something for You 💕</h3>
 
       <div class="gift-grid">
-        <img src="photos/always.jpeg" class="gift-img" onclick="openGift('quiz')" alt="Always">
-        <img src="photos/forever.jpeg" class="gift-img" onclick="openGift('memories')" alt="Forever">
-        <img src="photos/us.jpeg" class="gift-img" onclick="openGift('letter')" alt="Us">
+        <img src="photos/always.jpeg" class="gift-img" onclick="openGift('quiz')">
+        <img src="photos/forever.jpeg" class="gift-img" onclick="openGift('memories')">
+        <img src="photos/us.jpeg" class="gift-img" onclick="openGift('letter')">
       </div>
 
-      <!-- Dynamic content -->
       <div id="giftContent"></div>
-
       <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
   </div>
 
-  <!-- 🖼️ Memories Popup (Full Screen) -->
+  <!-- Memories -->
   <div id="memoryModal" class="modal hidden">
-    <div class="modal-content memory-content">
-
-      <h3>Some moments I love the most 💕</h3>
-
-      <!-- Chain 1 -->
-      <div class="polaroid-chain">
-        <div class="polaroid">
-          <img src="photos/aayo.jpeg" alt="">
-          <p onclick="playMemorySong(1)">That beginning 💗</p>
-        </div>
-
-        <div class="polaroid">
-          <img src="photos/dhan.jpeg" alt="">
-          <p onclick="playMemorySong(2)">Soft smiles</p>
-        </div>
-
-        <div class="polaroid">
-          <img src="photos/ooty.jpeg" alt="">
-          <p onclick="playMemorySong(3)">Favourite day</p>
-        </div>
-      </div>
-
-      <!-- Chain 2 -->
-      <div class="polaroid-chain">
-        <div class="polaroid">
-          <img src="photos/payo.jpeg" alt="">
-          <p onclick="playMemorySong(4)">Us energy ✨</p>
-        </div>
-
-        <div class="polaroid">
-          <img src="photos/prem.jpeg" alt="">
-          <p onclick="playMemorySong(5)">Where I belong</p>
-        </div>
-
-        <div class="polaroid">
-          <img src="photos/always.jpeg" alt="">
-          <p onclick="playMemorySong(6)">Always & forever</p>
-        </div>
-      </div>
-
+    <div class="memory-content">
       <button class="close-btn" onclick="closeMemory()">Close</button>
+
+      <div class="polaroid-chain">
+        <div class="polaroid"><img src="photos/aayo.jpeg"><p onclick="playMemorySong(1)">That beginning 💗</p></div>
+        <div class="polaroid"><img src="photos/dhan.jpeg"><p onclick="playMemorySong(2)">Soft smiles</p></div>
+        <div class="polaroid"><img src="photos/ooty.jpeg"><p onclick="playMemorySong(3)">Favourite day</p></div>
+      </div>
+
+      <div class="polaroid-chain">
+        <div class="polaroid"><img src="photos/payo.jpeg"><p onclick="playMemorySong(4)">Us energy ✨</p></div>
+        <div class="polaroid"><img src="photos/prem.jpeg"><p onclick="playMemorySong(5)">Where I belong</p></div>
+        <div class="polaroid"><img src="photos/always.jpeg"><p onclick="playMemorySong(6)">Always & forever</p></div>
+      </div>
     </div>
   </div>
-<!-- 📰 Letter Popup (Gift 3 – Full Screen) -->
-<div id="letterModal" class="modal hidden">
-  <div class="modal-content letter-content">
 
-    <button class="close-btn" onclick="closeLetter()">Close</button>
-
-    <iframe
-      src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-      style="width:100%; height:90vh; border:none;">
-    </iframe>
-
+  <!-- Letter -->
+  <div id="letterModal" class="modal hidden">
+    <div class="modal-content letter-content">
+      <button class="close-btn" onclick="closeLetter()">Close</button>
+      <iframe src="Brown Illustrated Newspaper Trifold Brochure.pdf"></iframe>
+    </div>
   </div>
-</div>
 
-  <!-- JS -->
   <script src="script.js"></script>
-
 </body>
 </html>
-
-
