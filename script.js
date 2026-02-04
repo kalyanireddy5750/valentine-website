@@ -163,44 +163,36 @@ document.getElementById("openGiftsBtn").onclick = () => {
     const content = document.getElementById("giftContent");
 
     if (type === "quiz") {
-      content.innerHTML = `
-        <div class="quiz-box">
-          <p class="quiz-title">Quick question 😌</p>
-          <p class="quiz-question">Who fell first?</p>
-          <div class="quiz-options">
-            <button onclick="quizAnswer('you')">You 😏</button>
-            <button onclick="quizAnswer('me')">Me 🙈</button>
-          </div>
-          <p id="quizResult" class="quiz-result"></p>
-        </div>
-      `;
-    }
+  content.innerHTML = `
+    <div class="quiz-box">
+      <p class="quiz-title">Tiny quiz before your gift 😌</p>
+      <p class="quiz-question">Who fell first?</p>
+
+      <div class="quiz-options">
+        <button onclick="quizStep1('you')">You 😏</button>
+        <button onclick="quizStep1('me')">Me 🙈</button>
+      </div>
+
+      <p id="quizResult" class="quiz-result"></p>
+    </div>
+  `;
+}
+
 
     if (type === "memories") {
       closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
-
     if (type === "letter") {
-      content.innerHTML = `
-        <p style="text-align:center; margin-bottom:12px;">
-          <strong>Something I made just for you 🖤</strong>
-        </p>
+  closeModal();
+  document.body.style.overflow = "hidden";
+  document.getElementById("letterModal").classList.remove("hidden");
+}
 
-        <div style="width:100%; height:70vh; border-radius:16px; overflow:hidden;">
-          <iframe 
-            src="Brown Illustrated Newspaper Trifold Brochure.pdf"
-            style="width:100%; height:100%; border:none;">
-          </iframe>
-        </div>
 
-        <p style="font-size:13px; opacity:0.7; text-align:center;">
-          Scroll slowly… it’s meant to be read gently 🙂
-        </p>
-      `;
-    }
-  };
+   
+     
 
   // ===============================
   // QUIZ ANSWER
@@ -230,4 +222,35 @@ document.getElementById("openGiftsBtn").onclick = () => {
   };
 
 });
+window.closeLetter = function () {
+  document.getElementById("letterModal").classList.add("hidden");
+  document.body.style.overflow = "auto";
+};
+  window.quizStep1 = function (choice) {
+  const result = document.getElementById("quizResult");
+
+  result.innerText =
+    choice === "me"
+      ? "Correct 💗 I fell first… and I still fall every day."
+      : "Haha 😌 maybe… but I fell harder.";
+
+  setTimeout(() => {
+    result.innerHTML += `
+      <br><br>
+      <strong>Next question 😏</strong><br>
+      What do I love most about you?<br><br>
+
+      <button onclick="quizEnd()">Everything 💕</button>
+      <button onclick="quizEnd()">Your smile 😌</button>
+    `;
+  }, 1200);
+};
+
+window.quizEnd = function () {
+  document.getElementById("quizResult").innerHTML =
+    "Correct 💖 The answer is always… YOU. Always you.";
+};
+
+
+
 
