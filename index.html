@@ -9,16 +9,15 @@
 
 <body>
 
-  <!-- 🎵 Background Music -->
+  <!-- 🎵 Background Music (played after YES) -->
   <audio id="bgMusic" loop>
     <source src="song.mp3.mpeg" type="audio/mpeg">
   </audio>
 
   <!-- 💖 Main Valentine Card -->
   <div class="container">
-    <div id="photoOverlay"></div>
 
-    <!-- First photo -->
+    <!-- Main photo -->
     <img src="photos/us.jpeg" alt="Us" class="couple-photo">
 
     <h1>HEYYY <span class="name">MY LITTLE STAR</span></h1>
@@ -34,7 +33,7 @@
     <p id="message"></p>
   </div>
 
-  <!-- 🎆 Fireworks -->
+  <!-- 🎆 Fireworks Canvas -->
   <canvas id="confetti"></canvas>
 
   <!-- 🎁 Gift Popup -->
@@ -48,31 +47,33 @@
         <img src="photos/us.jpeg" class="gift-img" onclick="openGift('letter')" alt="Us">
       </div>
 
+      <!-- Dynamic content -->
       <div id="giftContent"></div>
 
       <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
   </div>
 
-  <!-- 🖼️ Memories Popup (Polaroid Style) -->
+  <!-- 🖼️ Memories Popup (Full Screen) -->
   <div id="memoryModal" class="modal hidden">
     <div class="modal-content memory-content">
+
       <h3>Some moments I love the most 💕</h3>
 
       <!-- Chain 1 -->
       <div class="polaroid-chain">
         <div class="polaroid">
-          <img src="photos/aayo.jpeg">
+          <img src="photos/aayo.jpeg" alt="">
           <p onclick="playMemorySong(1)">That beginning 💗</p>
         </div>
 
         <div class="polaroid">
-          <img src="photos/dhan.jpeg">
+          <img src="photos/dhan.jpeg" alt="">
           <p onclick="playMemorySong(2)">Soft smiles</p>
         </div>
 
         <div class="polaroid">
-          <img src="photos/ooty.jpeg">
+          <img src="photos/ooty.jpeg" alt="">
           <p onclick="playMemorySong(3)">Favourite day</p>
         </div>
       </div>
@@ -80,17 +81,17 @@
       <!-- Chain 2 -->
       <div class="polaroid-chain">
         <div class="polaroid">
-          <img src="photos/payo.jpeg">
+          <img src="photos/payo.jpeg" alt="">
           <p onclick="playMemorySong(4)">Us energy ✨</p>
         </div>
 
         <div class="polaroid">
-          <img src="photos/prem.jpeg">
+          <img src="photos/prem.jpeg" alt="">
           <p onclick="playMemorySong(5)">Where I belong</p>
         </div>
 
         <div class="polaroid">
-          <img src="photos/always.jpeg">
+          <img src="photos/always.jpeg" alt="">
           <p onclick="playMemorySong(6)">Always & forever</p>
         </div>
       </div>
