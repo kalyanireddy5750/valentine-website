@@ -56,17 +56,52 @@
     </div>
   </div>
 <!-- 🖼️ Memories Popup -->
+<!-- 🖼️ Memories Popup (Polaroid Style) -->
 <div id="memoryModal" class="modal hidden">
   <div class="modal-content memory-content">
 
     <h3>Some moments I love the most 💕</h3>
 
-    <div class="memory-grid">
-
-      <div class="memory-item">
+    <!-- Chain 1 -->
+    <div class="polaroid-chain">
+      <div class="polaroid">
         <img src="aayo.jpeg">
-        <p>The beginning of us</p>
+        <p onclick="playMemorySong(1)">That beginning 💗</p>
       </div>
+
+      <div class="polaroid">
+        <img src="dhan.jpeg">
+        <p onclick="playMemorySong(2)">Soft smiles</p>
+      </div>
+
+      <div class="polaroid">
+        <img src="ooty.jpeg">
+        <p onclick="playMemorySong(3)">Favourite day</p>
+      </div>
+    </div>
+
+    <!-- Chain 2 -->
+    <div class="polaroid-chain">
+      <div class="polaroid">
+        <img src="payo.jpeg">
+        <p onclick="playMemorySong(4)">Us energy ✨</p>
+      </div>
+
+      <div class="polaroid">
+        <img src="prem.jpeg">
+        <p onclick="playMemorySong(5)">Where I belong</p>
+      </div>
+
+      <div class="polaroid">
+        <img src="always.jpeg">
+        <p onclick="playMemorySong(6)">Always & forever</p>
+      </div>
+    </div>
+
+    <button class="close-btn" onclick="closeMemory()">Close</button>
+  </div>
+</div>
+
 
       <div class="memory-item">
         <img src="dhan.jpeg">
@@ -100,4 +135,5 @@
 
 </body>
 </html>
+
 
