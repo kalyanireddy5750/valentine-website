@@ -1,14 +1,8 @@
-/* ===============================
-   GLOBAL RESET
-================================ */
 * {
   box-sizing: border-box;
-  font-family: "Poppins", system-ui, sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ===============================
-   BACKGROUND
-================================ */
 body {
   margin: 0;
   min-height: 100vh;
@@ -17,60 +11,31 @@ body {
     url("photos/us.jpeg");
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px;
 }
 
-/* ===============================
-   MAIN CARD
-================================ */
 .container {
-  background: rgba(255, 250, 247, 0.9);
+  background: rgba(255,250,247,0.9);
   backdrop-filter: blur(6px);
-  padding: 28px 24px;
+  padding: 28px;
   border-radius: 22px;
-  text-align: center;
-  width: 100%;
   max-width: 420px;
+  width: 100%;
+  text-align: center;
   box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-/* Profile photo */
 .couple-photo {
   width: 90px;
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 14px;
   border: 3px solid #f3c6c6;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
 }
 
-/* Headings */
-h1 {
-  margin: 8px 0;
-  font-size: 22px;
-  font-weight: 500;
-  color: #111;
-}
-
-h2 {
-  font-size: 17px;
-  font-weight: 400;
-  color: #333;
-  margin-bottom: 28px;
-}
-
-.name {
-  font-weight: 500;
-}
-
-/* ===============================
-   BUTTONS
-================================ */
 .buttons {
   display: flex;
   justify-content: center;
@@ -78,85 +43,23 @@ h2 {
 }
 
 button {
-  padding: 14px 26px;
-  font-size: 15px;
+  padding: 12px 24px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-#yesBtn {
-  background: #f4b6c2;
-  color: #111;
-}
+#yesBtn { background: #f4b6c2; }
+#noBtn { background: #e6e6e6; }
 
-#noBtn {
-  background: #e6e6e6;
-  color: #333;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-}
-
-/* ===============================
-   TEXT FEEDBACK
-================================ */
-#cryEmoji {
-  margin-top: 14px;
-  font-size: 30px;
-  display: none;
-  opacity: 0.7;
-}
-
-#threat {
-  margin-top: 12px;
-  font-size: 15px;
-  color: #444;
-}
-
-#message {
-  margin-top: 22px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #111;
-  line-height: 1.6;
-}
-
-/* ===============================
-   OPEN GIFTS BUTTON
-================================ */
 #openGiftsBtn {
-  margin-top: 20px;
-  padding: 12px 22px;
-  border-radius: 22px;
+  margin-top: 18px;
   background: #ff8fa3;
   color: #fff;
-  font-size: 14px;
-  cursor: pointer;
 }
 
-/* ===============================
-   CANVAS
-================================ */
-canvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-}
+.hidden { display: none; }
 
-/* ===============================
-   VISIBILITY
-================================ */
-.hidden {
-  display: none;
-}
-
-/* ===============================
-   MODALS
-================================ */
 .modal {
   position: fixed;
   inset: 0;
@@ -167,30 +70,17 @@ canvas {
   z-index: 999;
 }
 
+.modal.hidden { display: none; }
+
 .modal-content {
   background: #fff7f4;
-  padding: 26px;
-  border-radius: 22px;
+  padding: 24px;
+  border-radius: 20px;
   width: 95%;
   max-width: 420px;
   text-align: center;
-  max-height: 90vh;
-  overflow-y: auto;
 }
 
-/* Close button */
-.close-btn {
-  margin-top: 18px;
-  padding: 8px 20px;
-  border-radius: 18px;
-  border: none;
-  background: #f4b6c2;
-  cursor: pointer;
-}
-
-/* ===============================
-   GIFT GRID
-================================ */
 .gift-grid {
   display: flex;
   gap: 14px;
@@ -203,74 +93,31 @@ canvas {
   border-radius: 14px;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.gift-img:hover {
-  transform: scale(1.05);
-}
-
-/* ===============================
-   GIFT 1 – QUIZ (IMPROVED)
-================================ */
 .quiz-box {
   background: #fde7ec;
-  padding: 18px;
-  border-radius: 18px;
+  padding: 16px;
+  border-radius: 16px;
   margin-top: 10px;
 }
 
-.quiz-title {
-  font-size: 16px;
-  margin-bottom: 10px;
-}
-
-.quiz-question {
-  font-size: 15px;
-  margin-bottom: 14px;
-}
-
-.quiz-options button {
-  background: #f4b6c2;
-  color: #111;
-  padding: 10px 18px;
-  margin: 6px;
-  border-radius: 22px;
-  font-size: 14px;
-}
-
-.quiz-result {
-  margin-top: 14px;
-  line-height: 1.5;
-}
-
-/* ===============================
-   MEMORY MODAL (FULL SCREEN)
-================================ */
-#memoryModal {
-  background: rgba(255,245,248,0.98);
-  z-index: 9999;
-  overflow-y: auto;
-}
-
 .memory-content {
+  background: rgba(255,245,248,0.98);
+  padding: 30px;
   max-width: 1100px;
-  margin: 60px auto;
-  padding: 20px;
 }
 
-/* Polaroid layout */
 .polaroid-chain {
   display: flex;
+  gap: 24px;
   justify-content: center;
-  gap: 26px;
   margin: 24px 0;
 }
 
 .polaroid {
   background: #fff;
-  padding: 10px 10px 18px;
-  border-radius: 6px;
+  padding: 10px;
   width: 160px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
@@ -279,40 +126,10 @@ canvas {
   width: 100%;
   height: 160px;
   object-fit: cover;
-  border-radius: 4px;
 }
 
-.polaroid p {
-  margin-top: 10px;
-  font-size: 13px;
-  text-align: center;
-  cursor: pointer;
-  color: #444;
-}
-
-.polaroid p:hover {
-  text-decoration: underline;
-}
-
-/* ===============================
-   LETTER (GIFT 3)
-================================ */
-.modal-content iframe {
+iframe {
   width: 100%;
-  height: 80vh;
-  border-radius: 12px;
+  height: 85vh;
   border: none;
-  background: #fff;
-}
-
-/* ===============================
-   MOBILE
-================================ */
-@media (max-width: 600px) {
-  .polaroid-chain {
-    flex-wrap: wrap;
-  }
-  .modal-content iframe {
-    height: 70vh;
-  }
 }
