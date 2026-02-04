@@ -164,15 +164,17 @@ function openGift(type) {
 }
 
 
-  if (type === "memories") {
-    closeModal();
-    document.getElementById("memoryModal").classList.remove("hidden");
-  }
+ if (type === "memories") {
+  closeModal();
+  document.body.style.overflow = "hidden";
+  document.getElementById("memoryModal").classList.remove("hidden");
 }
+
 
 /* 🖼️ Memory popup close */
 function closeMemory() {
   document.getElementById("memoryModal").classList.add("hidden");
+  document.body.style.overflow = "auto";
 }
 
 /* Quiz answer */
@@ -195,6 +197,7 @@ function playMemorySong(num) {
   currentSong.volume = 0.6;
   currentSong.play();
 }
+
 
 
 
