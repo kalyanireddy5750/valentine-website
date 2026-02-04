@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bgMusic = document.getElementById("bgMusic");
   const giftModal = document.getElementById("giftModal");
   const memoryModal = document.getElementById("memoryModal");
+  const letterModal = document.getElementById("letterModal");
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
 
@@ -29,9 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   noBtn.addEventListener("click", () => {
-    cryEmoji.style.display = "block";
+    if (cryEmoji) cryEmoji.style.display = "block";
 
-    if (clickCount < threats.length) {
+    if (clickCount < threats.length && threat) {
       threat.innerText = threats[clickCount];
     }
 
@@ -47,21 +48,21 @@ document.addEventListener("DOMContentLoaded", () => {
   // YES BUTTON
   // ===============================
   yesBtn.addEventListener("click", () => {
-    message.innerText =
-      "I knew it.\n\nCongratulations… you’re officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💗";
+    if (message) {
+      message.innerText =
+        "I knew it.\n\nCongratulations… you’re officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💗";
+    }
 
     noBtn.style.display = "none";
-    cryEmoji.style.display = "none";
-    threat.innerText = "";
+    if (cryEmoji) cryEmoji.style.display = "none";
+    if (threat) threat.innerText = "";
 
     fadeInMusic(bgMusic);
     startFireworks();
 
-    if (openGiftsBtn) {
+    if (openGiftsBtn && giftModal) {
       openGiftsBtn.classList.remove("hidden");
-      openGiftsBtn.onclick = () => {
-        giftModal.classList.remove("hidden");
-      };
+      openGiftsBtn.onclick = () => giftModal.classList.remove("hidden");
     }
   });
 
@@ -147,17 +148,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // MODALS
   // ===============================
   window.closeModal = function () {
-    giftModal.classList.add("hidden");
-    document.getElementById("giftContent").innerHTML = "";
+    if (giftModal) giftModal.classList.add("hidden");
+    const giftContent = document.getElementById("giftContent");
+    if (giftContent) giftContent.innerHTML = "";
   };
 
   window.closeMemory = function () {
-    memoryModal.classList.add("hidden");
+    if (memoryModal) memoryModal.classList.add("hidden");
     document.body.style.overflow = "auto";
   };
 
   window.closeLetter = function () {
-    document.getElementById("letterModal").classList.add("hidden");
+    if (letterModal) letterModal.classList.add("hidden");
     document.body.style.overflow = "auto";
     stopLetterMusic();
   };
@@ -167,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
+    if (!content) return;
 
     if (type === "quiz") {
       content.innerHTML = `
@@ -182,16 +185,16 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    if (type === "memories") {
+    if (type === "memories" && memoryModal) {
       closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
 
-    if (type === "letter") {
+    if (type === "letter" && letterModal) {
       closeModal();
       document.body.style.overflow = "hidden";
-      document.getElementById("letterModal").classList.remove("hidden");
+      letterModal.classList.remove("hidden");
       playLetterMusic();
     }
   };
@@ -201,6 +204,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // ===============================
   window.quizStep1 = function (choice) {
     const result = document.getElementById("quizResult");
+    if (!result) return;
+
     result.innerText =
       choice === "me"
         ? "Correct 💗 I fell first… and I still fall every day."
@@ -218,8 +223,11 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   window.quizEnd = function () {
-    document.getElementById("quizResult").innerHTML =
-      "Correct 💖 The answer is always… YOU. Always you.";
+    const result = document.getElementById("quizResult");
+    if (result) {
+      result.innerHTML =
+        "Correct 💖 The answer is always… YOU. Always you.";
+    }
   };
 
   // ===============================
