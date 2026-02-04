@@ -9,7 +9,7 @@
 
 <body>
 
-  <!-- 🎵 Background Music (plays after YES via JS) -->
+  <!-- 🎵 Background Music -->
   <audio id="bgMusic" loop>
     <source src="song.mp3.mpeg" type="audio/mpeg">
   </audio>
@@ -19,7 +19,7 @@
     <div id="photoOverlay"></div>
 
     <!-- First photo -->
-    <img src="photos\us.jpeg" alt="Us" class="couple-photo">
+    <img src="photos/us.jpeg" alt="Us" class="couple-photo">
 
     <h1>HEYYY <span class="name">MY LITTLE STAR</span></h1>
     <h2>Will you be my Valentine? 💝</h2>
@@ -34,107 +34,73 @@
     <p id="message"></p>
   </div>
 
-  <!-- 🎆 Fireworks Canvas -->
+  <!-- 🎆 Fireworks -->
   <canvas id="confetti"></canvas>
 
-  <!-- 🎁 POPUP MODAL (appears after 5 seconds) -->
+  <!-- 🎁 Gift Popup -->
   <div id="giftModal" class="modal hidden">
     <div class="modal-content">
-
       <h3>Something for You</h3>
 
       <div class="gift-grid">
-        <img src="photos\always.jpeg" class="gift-img" onclick="openGift('quiz')" alt="Always">
-        <img src="photos\forever.jpeg" class="gift-img" onclick="openGift('memories')" alt="Forever">
-        <img src="photos\sumo.jpeg" class="gift-img" onclick="openGift('letter')" alt="Us">
+        <img src="photos/always.jpeg" class="gift-img" onclick="openGift('quiz')" alt="Always">
+        <img src="photos/forever.jpeg" class="gift-img" onclick="openGift('memories')" alt="Forever">
+        <img src="photos/us.jpeg" class="gift-img" onclick="openGift('letter')" alt="Us">
       </div>
 
-      <!-- Dynamic content loads here -->
       <div id="giftContent"></div>
 
       <button class="close-btn" onclick="closeModal()">Close</button>
     </div>
   </div>
-<!-- 🖼️ Memories Popup -->
-<!-- 🖼️ Memories Popup (Polaroid Style) -->
-<div id="memoryModal" class="modal hidden">
-  <div class="modal-content memory-content">
 
-    <h3>Some moments I love the most 💕</h3>
+  <!-- 🖼️ Memories Popup (Polaroid Style) -->
+  <div id="memoryModal" class="modal hidden">
+    <div class="modal-content memory-content">
+      <h3>Some moments I love the most 💕</h3>
 
-    <!-- Chain 1 -->
-    <div class="polaroid-chain">
-      <div class="polaroid">
-        <img src="photos\aayo.jpeg">
-        <p onclick="playMemorySong(1)">That beginning 💗</p>
+      <!-- Chain 1 -->
+      <div class="polaroid-chain">
+        <div class="polaroid">
+          <img src="photos/aayo.jpeg">
+          <p onclick="playMemorySong(1)">That beginning 💗</p>
+        </div>
+
+        <div class="polaroid">
+          <img src="photos/dhan.jpeg">
+          <p onclick="playMemorySong(2)">Soft smiles</p>
+        </div>
+
+        <div class="polaroid">
+          <img src="photos/ooty.jpeg">
+          <p onclick="playMemorySong(3)">Favourite day</p>
+        </div>
       </div>
 
-      <div class="polaroid">
-        <img src="photos\dhan.jpeg">
-        <p onclick="playMemorySong(2)">Soft smiles</p>
+      <!-- Chain 2 -->
+      <div class="polaroid-chain">
+        <div class="polaroid">
+          <img src="photos/payo.jpeg">
+          <p onclick="playMemorySong(4)">Us energy ✨</p>
+        </div>
+
+        <div class="polaroid">
+          <img src="photos/prem.jpeg">
+          <p onclick="playMemorySong(5)">Where I belong</p>
+        </div>
+
+        <div class="polaroid">
+          <img src="photos/always.jpeg">
+          <p onclick="playMemorySong(6)">Always & forever</p>
+        </div>
       </div>
 
-      <div class="polaroid">
-        <img src="photos\ooty.jpeg">
-        <p onclick="playMemorySong(3)">Favourite day</p>
-      </div>
+      <button class="close-btn" onclick="closeMemory()">Close</button>
     </div>
-
-    <!-- Chain 2 -->
-    <div class="polaroid-chain">
-      <div class="polaroid">
-        <img src="photos\payo.jpeg">
-        <p onclick="playMemorySong(4)">Us energy ✨</p>
-      </div>
-
-      <div class="polaroid">
-        <img src="photos\prem.jpeg">
-        <p onclick="playMemorySong(5)">Where I belong</p>
-      </div>
-
-      <div class="polaroid">
-        <img src="photos\always.jpeg">
-        <p onclick="playMemorySong(6)">Always & forever</p>
-      </div>
-    </div>
-
-    <button class="close-btn" onclick="closeMemory()">Close</button>
   </div>
-</div>
-
-
-      <div class="memory-item">
-        <img src="photos\dhan.jpeg">
-        <p>A day I still smile about</p>
-      </div>
-
-      <div class="memory-item">
-        <img src="photos\ooty.jpeg">
-        <p>One of my favourite days</p>
-      </div>
-
-      <div class="memory-item">
-        <img src="photos\payo.jpeg">
-        <p>Just us being happy</p>
-      </div>
-
-      <div class="memory-item">
-        <img src="photos\prem.jpeg">
-        <p>Exactly where I belong</p>
-      </div>
-
-    </div>
-
-    <button class="close-btn" onclick="closeMemory()">Close</button>
-
-  </div>
-</div>
 
   <!-- JS -->
   <script src="script.js"></script>
 
 </body>
 </html>
-
-
-
