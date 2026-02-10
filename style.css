@@ -12,17 +12,14 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background:
-    linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
-    url("photos/us.jpeg");
+  background: url("photos/fav.jpeg") no-repeat center center fixed;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px;
 }
+
 
 /* ===============================
    MAIN CARD
@@ -323,4 +320,5 @@ canvas {
     height: 70vh;
   }
 }
+
 
