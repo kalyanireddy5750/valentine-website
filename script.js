@@ -201,6 +201,55 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 }
+    window.quizQ1 = function(answer) {
+  const result = document.getElementById("quizResult");
+
+  if (answer === "aaloo") {
+    result.innerText =
+      "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
+  }
+
+  if (answer === "jalebi") {
+    result.innerText =
+      "Sweet choice 😌 but not sweeter than you.";
+  }
+
+  if (answer === "laddu") {
+    result.innerText =
+      "Closeee 😏 but still not the right answer.";
+  }
+
+  if (answer === "you") {
+    result.innerText =
+      "Correct 💗 Always you.\nFood is temporary. You are permanent.";
+  }
+
+  // Move to next question
+  setTimeout(() => {
+    quizNext();
+  }, answer === "you" ? 2000 : 1200);
+};
+
+function quizNext() {
+  const content = document.getElementById("giftContent");
+
+  content.innerHTML = `
+    <div class="quiz-box">
+      <p class="quiz-title">Next question 😏</p>
+
+      <p class="quiz-question">
+        <!-- YOU WILL PUT NEXT QUESTION HERE -->
+      </p>
+
+      <div class="quiz-options">
+        <!-- OPTIONS GO HERE -->
+      </div>
+
+      <p class="quiz-result"></p>
+    </div>
+  `;
+}
+
 
 
     if (type === "memories") {
@@ -276,4 +325,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
 
