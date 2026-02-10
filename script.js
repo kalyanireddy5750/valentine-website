@@ -14,6 +14,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const letterModal = document.getElementById("letterModal");
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
+  const introVideo = document.getElementById("introVideo");
+const videoScreen = document.getElementById("videoScreen");
+const mainContent = document.getElementById("mainContent");
+
+if (introVideo) {
+  introVideo.onended = () => {
+    videoScreen.classList.add("fade-out");
+
+    setTimeout(() => {
+      videoScreen.style.display = "none";
+      mainContent.classList.remove("hidden");
+    }, 1200);
+  };
+}
+
 
   if (!yesBtn || !noBtn) return;
 
@@ -262,3 +277,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
