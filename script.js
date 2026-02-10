@@ -9,42 +9,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const threat = document.getElementById("threat");
   const cryEmoji = document.getElementById("cryEmoji");
   const bgMusic = document.getElementById("bgMusic");
+
   const giftModal = document.getElementById("giftModal");
   const memoryModal = document.getElementById("memoryModal");
   const letterModal = document.getElementById("letterModal");
+
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
-  const introVideo = document.getElementById("introVideo");
-const videoScreen = document.getElementById("videoScreen");
-const mainContent = document.getElementById("mainContent");
-const introVideo = document.getElementById("introVideo");
-const playBtn = document.getElementById("playBtn");
-const videoScreen = document.getElementById("videoScreen");
-const mainContent = document.getElementById("mainContent");
-const bgMusic = document.getElementById("bgMusic");
-
-if (playBtn && introVideo) {
-  playBtn.onclick = () => {
-    playBtn.style.display = "none";
-    introVideo.play();
-  };
-
-  introVideo.onended = () => {
-    videoScreen.classList.add("fade-out");
-
-    setTimeout(() => {
-      videoScreen.style.display = "none";
-      mainContent.classList.remove("hidden");
-
-      if (bgMusic) {
-        bgMusic.volume = 0.4;
-        bgMusic.play();
-      }
-    }, 1200);
-  };
-}
-
-
 
   if (!yesBtn || !noBtn) return;
 
@@ -91,9 +62,12 @@ if (playBtn && introVideo) {
     fadeInMusic(bgMusic);
     startFireworks();
 
-    if (openGiftsBtn && giftModal) {
+    if (openGiftsBtn) {
       openGiftsBtn.classList.remove("hidden");
-      openGiftsBtn.onclick = () => giftModal.classList.remove("hidden");
+      openGiftsBtn.onclick = () => {
+        pauseBgMusic();
+        giftModal.classList.remove("hidden");
+      };
     }
   });
 
@@ -175,24 +149,34 @@ if (playBtn && introVideo) {
     }, 200);
   }
 
+  function pauseBgMusic() {
+    if (bgMusic) bgMusic.pause();
+  }
+
+  function resumeBgMusic() {
+    if (bgMusic) bgMusic.play();
+  }
+
   // ===============================
   // MODALS
   // ===============================
   window.closeModal = function () {
-    if (giftModal) giftModal.classList.add("hidden");
-    const giftContent = document.getElementById("giftContent");
-    if (giftContent) giftContent.innerHTML = "";
+    giftModal.classList.add("hidden");
+    document.getElementById("giftContent").innerHTML = "";
+    resumeBgMusic();
   };
 
   window.closeMemory = function () {
-    if (memoryModal) memoryModal.classList.add("hidden");
+    memoryModal.classList.add("hidden");
     document.body.style.overflow = "auto";
+    resumeBgMusic();
   };
 
   window.closeLetter = function () {
-    if (letterModal) letterModal.classList.add("hidden");
+    letterModal.classList.add("hidden");
     document.body.style.overflow = "auto";
     stopLetterMusic();
+    resumeBgMusic();
   };
 
   // ===============================
@@ -200,7 +184,6 @@ if (playBtn && introVideo) {
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
-    if (!content) return;
 
     if (type === "quiz") {
       content.innerHTML = `
@@ -216,13 +199,13 @@ if (playBtn && introVideo) {
       `;
     }
 
-    if (type === "memories" && memoryModal) {
+    if (type === "memories") {
       closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
 
-    if (type === "letter" && letterModal) {
+    if (type === "letter") {
       closeModal();
       document.body.style.overflow = "hidden";
       letterModal.classList.remove("hidden");
@@ -235,7 +218,6 @@ if (playBtn && introVideo) {
   // ===============================
   window.quizStep1 = function (choice) {
     const result = document.getElementById("quizResult");
-    if (!result) return;
 
     result.innerText =
       choice === "me"
@@ -254,11 +236,8 @@ if (playBtn && introVideo) {
   };
 
   window.quizEnd = function () {
-    const result = document.getElementById("quizResult");
-    if (result) {
-      result.innerHTML =
-        "Correct 💖 The answer is always… YOU. Always you.";
-    }
+    document.getElementById("quizResult").innerHTML =
+      "Correct 💖 The answer is always… YOU. Always you.";
   };
 
   // ===============================
@@ -293,5 +272,3 @@ if (playBtn && introVideo) {
   }
 
 });
-
-
