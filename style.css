@@ -355,5 +355,37 @@ canvas {
   opacity: 0;
   transition: opacity 1.2s ease;
 }
+#videoScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+}
+
+#videoScreen video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#playBtn {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  font-size: 30px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  cursor: pointer;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+
 
 
