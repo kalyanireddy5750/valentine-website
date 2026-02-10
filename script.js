@@ -65,11 +65,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (openGiftsBtn) {
       openGiftsBtn.classList.remove("hidden");
       openGiftsBtn.onclick = () => {
-        pauseBgMusic();
-        giftModal.classList.remove("hidden");
-      };
-    }
-  });
+  if (bgMusic) {
+    bgMusic.pause();
+    bgMusic.currentTime = 0; // reset so it never resumes
+  }
+  giftModal.classList.remove("hidden");
+};
+
 
   // ===============================
   // FIREWORKS
@@ -153,9 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (bgMusic) bgMusic.pause();
   }
 
-  function resumeBgMusic() {
-    if (bgMusic) bgMusic.play();
-  }
+
 
   // ===============================
   // MODALS
@@ -163,20 +163,20 @@ document.addEventListener("DOMContentLoaded", () => {
   window.closeModal = function () {
     giftModal.classList.add("hidden");
     document.getElementById("giftContent").innerHTML = "";
-    resumeBgMusic();
+    
   };
 
   window.closeMemory = function () {
     memoryModal.classList.add("hidden");
     document.body.style.overflow = "auto";
-    resumeBgMusic();
+   
   };
 
   window.closeLetter = function () {
     letterModal.classList.add("hidden");
     document.body.style.overflow = "auto";
     stopLetterMusic();
-    resumeBgMusic();
+   
   };
 
   // ===============================
@@ -272,3 +272,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
