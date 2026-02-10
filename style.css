@@ -314,3 +314,28 @@ canvas {
     height: 70vh;
   }
 }
+/* ===============================
+   INTRO VIDEO SCREEN
+================================ */
+#videoScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#videoScreen video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smooth fade */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
