@@ -181,19 +181,27 @@ document.addEventListener("DOMContentLoaded", () => {
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
 
-    if (type === "quiz") {
-      content.innerHTML = `
-        <div class="quiz-box">
-          <p class="quiz-title">Tiny quiz before your gift 😌</p>
-          <p class="quiz-question">Who fell first?</p>
-          <div class="quiz-options">
-            <button onclick="quizStep1('you')">You 😏</button>
-            <button onclick="quizStep1('me')">Me 🙈</button>
-          </div>
-          <p id="quizResult" class="quiz-result"></p>
-        </div>
-      `;
-    }
+   if (type === "quiz") {
+  content.innerHTML = `
+    <div class="quiz-box">
+      <p class="quiz-title">Little quiz before your gift 😌</p>
+
+      <p class="quiz-question">
+        What do I love the most?
+      </p>
+
+      <div class="quiz-options">
+        <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
+        <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
+        <button onclick="quizQ1('laddu')">Laddu 🍬</button>
+        <button onclick="quizQ1('you')">You 💖</button>
+      </div>
+
+      <p id="quizResult" class="quiz-result"></p>
+    </div>
+  `;
+}
+
 
     if (type === "memories") {
       closeModal();
@@ -268,3 +276,4 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
