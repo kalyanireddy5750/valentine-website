@@ -17,17 +17,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const introVideo = document.getElementById("introVideo");
 const videoScreen = document.getElementById("videoScreen");
 const mainContent = document.getElementById("mainContent");
+const introVideo = document.getElementById("introVideo");
+const playBtn = document.getElementById("playBtn");
+const videoScreen = document.getElementById("videoScreen");
+const mainContent = document.getElementById("mainContent");
+const bgMusic = document.getElementById("bgMusic");
 
-if (introVideo) {
+if (playBtn && introVideo) {
+  playBtn.onclick = () => {
+    playBtn.style.display = "none";
+    introVideo.play();
+  };
+
   introVideo.onended = () => {
     videoScreen.classList.add("fade-out");
 
     setTimeout(() => {
       videoScreen.style.display = "none";
       mainContent.classList.remove("hidden");
+
+      if (bgMusic) {
+        bgMusic.volume = 0.4;
+        bgMusic.play();
+      }
     }, 1200);
   };
 }
+
 
 
   if (!yesBtn || !noBtn) return;
@@ -277,4 +293,5 @@ if (introVideo) {
   }
 
 });
+
 
