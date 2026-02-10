@@ -12,7 +12,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: url("photos/prem.jpeg") no-repeat center center fixed;
+  background: url("photos/ratan.jpeg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -345,6 +345,7 @@ canvas {
     height: 70vh;
   }
 }
+
 
 
 
