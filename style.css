@@ -150,12 +150,19 @@ canvas {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.6); /* darker overlay */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
+/* Strong popup box so background text never shows */
+.modal .modal-content {
+  background: #ffffff;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+}
+
+
 
 .modal.hidden {
   display: none;
@@ -213,6 +220,24 @@ canvas {
 .gift-img:hover {
   transform: scale(1.05);
 }
+/* Gift item wrapper */
+.gift-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Open gift button */
+.gift-open-btn {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 16px;
+  background: #f4b6c2;
+  border: none;
+  cursor: pointer;
+}
+
 
 /* ===============================
    GIFT 1 – QUIZ
@@ -320,6 +345,7 @@ canvas {
     height: 70vh;
   }
 }
+
 
 
 
