@@ -169,9 +169,10 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   // MODALS
   // ===============================
   window.closeModal = function () {
-    giftModal.classList.add("hidden");
-    document.getElementById("giftContent").innerHTML = "";
-  };
+  // Do NOT close the gift popup
+  // Only clear the opened gift content
+  document.getElementById("giftContent").innerHTML = "";
+};
 
   window.closeMemory = function () {
     memoryModal.classList.add("hidden");
@@ -302,4 +303,5 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   }
 
 });
+
 
