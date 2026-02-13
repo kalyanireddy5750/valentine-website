@@ -16,6 +16,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
+  const gifts = document.querySelectorAll(".gift-item");
+let currentGift = 0;
+
+// unlock first gift
+if (gifts.length) {
+  gifts[0].classList.remove("locked");
+  gifts[0].classList.add("active");
+}
+
+// unlock next gift after one is opened
+window.openGift = function (type) {
+  // existing openGift code stays SAME above this logic
+
+  if (currentGift + 1 < gifts.length) {
+    gifts[currentGift + 1].classList.remove("locked");
+    gifts[currentGift + 1].classList.add("active");
+  }
+  currentGift++;
+};
 
   if (!yesBtn || !noBtn) return;
 
@@ -331,6 +350,7 @@ function quizNext() {
   }
 
 });
+
 
 
 
