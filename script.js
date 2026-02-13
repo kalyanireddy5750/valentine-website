@@ -194,9 +194,9 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
           <p class="quiz-title">Little quiz before your gift 😌</p>
           <p class="quiz-question">What do I love the most?</p>
           <div class="quiz-options">
-            <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
-            <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
-            <button onclick="quizQ1('laddu')">Laddu 🍬</button>
+            <button onclick="quizQ1('aaloo')">Aaloo Parotta </button>
+            <button onclick="quizQ1('jalebi')">Jalebi </button>
+            <button onclick="quizQ1('laddu')">Laddu </button>
             <button onclick="quizQ1('you')">You 💖</button>
           </div>
           <p id="quizResult" class="quiz-result"></p>
@@ -314,4 +314,5 @@ window.quizQ2Answer = function () {
   }
 
 });
+
 
