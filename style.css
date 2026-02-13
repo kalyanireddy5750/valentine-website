@@ -155,14 +155,19 @@ canvas {
   inset: 0;
   background: rgba(0,0,0,0.6); /* darker overlay */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   z-index: 999;
 }
 /* Strong popup box so background text never shows */
 .modal .modal-content {
-  background: #ffffff;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.45);
+  background: #fff;
+  padding: 26px;
+  border-radius: 22px;
+  width: 360px;
+  max-width: 90%;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  text-align: center;
 }
 
 
@@ -359,6 +364,7 @@ canvas {
     margin-right: 0;
   }
 }
+
 
 
 
