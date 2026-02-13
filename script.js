@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     "Really sure...??? ☹️",
     "Take a moment and think 👿",
     "You might regret this 🔪",
-    "Aakhri moka hai soch lo...mein murder nahii karnaa chaahthii aaj"
+    "Aakhri moka hai soch lo...mein murder nahii karnaa chaahthii aaj",
+    "Heee Heeeeeee...you can't escape mee 😏"
   ];
 
   noBtn.addEventListener("click", () => {
@@ -303,5 +304,6 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   }
 
 });
+
 
 
