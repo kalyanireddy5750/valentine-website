@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
-  
 
   if (!yesBtn || !noBtn) return;
 
@@ -54,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (message) {
       message.innerText = `Yaaaaayyyyyyyyy!!!
 Thank you sooo much for being my Valentine 🥰.
-I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 💗).
+I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side 💗.
 Love you to the moon and back, my sweet boy. Ummmaaahhh 😘
 Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }
@@ -69,8 +68,15 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     if (openGiftsBtn) {
       openGiftsBtn.classList.remove("hidden");
       openGiftsBtn.onclick = () => {
-        document.querySelector(".container").style.display = "none";
 
+        // fade main card instead of removing layout
+        const container = document.querySelector(".container");
+        if (container) {
+          container.style.opacity = "0";
+          container.style.pointerEvents = "none";
+        }
+
+        // stop background music forever
         if (bgMusic) {
           bgMusic.pause();
           bgMusic.currentTime = 0;
@@ -159,10 +165,6 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }, 200);
   }
 
-  function pauseBgMusic() {
-    if (bgMusic) bgMusic.pause();
-  }
-
   // ===============================
   // MODALS
   // ===============================
@@ -183,7 +185,7 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   };
 
   // ===============================
-  // GIFTS
+  // GIFTS (ALL CLICKABLE ANYTIME)
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
@@ -193,17 +195,19 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
         <div class="quiz-box">
           <p class="quiz-title">Little quiz before your gift 😌</p>
           <p class="quiz-question">What do I love the most?</p>
+
           <div class="quiz-options">
-            <button onclick="quizQ1('aaloo')">Aaloo Parotta </button>
-            <button onclick="quizQ1('jalebi')">Jalebi </button>
-            <button onclick="quizQ1('laddu')">Laddu </button>
+            <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
+            <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
+            <button onclick="quizQ1('laddu')">Laddu 🍬</button>
             <button onclick="quizQ1('you')">You 💖</button>
           </div>
+
           <p id="quizResult" class="quiz-result"></p>
-          <!-- NEXT BUTTON (hidden initially) -->
-      <button id="nextBtn" class="gift-open-btn hidden" onclick="quizQ2()">
-        Next ➜
-      </button>
+
+          <button id="nextBtn" class="gift-open-btn hidden" onclick="quizQ2()">
+            Next ➜
+          </button>
         </div>
       `;
     }
@@ -220,68 +224,53 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
       letterModal.classList.remove("hidden");
       playLetterMusic();
     }
-
-   
   };
 
   // ===============================
-  // QUIZ
+  // QUIZ LOGIC
   // ===============================
   window.quizQ1 = function (answer) {
-  const result = document.getElementById("quizResult");
-  const nextBtn = document.getElementById("nextBtn");
+    const result = document.getElementById("quizResult");
+    const nextBtn = document.getElementById("nextBtn");
 
-  if (answer === "aaloo") {
-    result.innerText =
-      "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
-  }
+    if (answer === "aaloo") {
+      result.innerText = "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
+    }
+    if (answer === "jalebi") {
+      result.innerText = "Sweet choice 😌 but not sweeter than you.";
+    }
+    if (answer === "laddu") {
+      result.innerText = "Closeee 😏 but still not the right answer.";
+    }
+    if (answer === "you") {
+      result.innerText = "Correct 💗 Always you.\nFood is temporary. You are permanent.";
+    }
 
-  if (answer === "jalebi") {
-    result.innerText =
-      "Sweet choice 😌 but not sweeter than you.";
-  }
+    nextBtn.classList.remove("hidden");
+  };
 
-  if (answer === "laddu") {
-    result.innerText =
-      "Closeee 😏 but still not the right answer.";
-  }
-
-  if (answer === "you") {
-    result.innerText =
-      "Correct 💗 Always you.\nFood is temporary. You are permanent.";
-  }
-
-  // show NEXT button after answering
-  nextBtn.classList.remove("hidden");
-};
   window.quizQ2 = function () {
-  const content = document.getElementById("giftContent");
+    document.getElementById("giftContent").innerHTML = `
+      <div class="quiz-box">
+        <p class="quiz-title">Next question 😏</p>
+        <p class="quiz-question">What do I love most about you?</p>
 
-  content.innerHTML = `
-    <div class="quiz-box">
-      <p class="quiz-title">Next question 😏</p>
+        <div class="quiz-options">
+          <button onclick="quizQ2Answer()">Your smile 😊</button>
+          <button onclick="quizQ2Answer()">Your care 💗</button>
+          <button onclick="quizQ2Answer()">Your everything 💕</button>
+        </div>
 
-      <p class="quiz-question">
-        What do I love most about you?
-      </p>
-
-      <div class="quiz-options">
-        <button onclick="quizQ2Answer()">Your smile 😊</button>
-        <button onclick="quizQ2Answer()">Your care 💗</button>
-        <button onclick="quizQ2Answer()">Your everything 💕</button>
+        <p class="quiz-result" id="quizResult"></p>
       </div>
+    `;
+  };
 
-      <p id="quizResult" class="quiz-result"></p>
-    </div>
-  `;
-};
+  window.quizQ2Answer = function () {
+    document.getElementById("quizResult").innerText =
+      "Correct 💖 The answer is always… YOU. Always you.";
+  };
 
-window.quizQ2Answer = function () {
-  document.getElementById("quizResult").innerText =
-    "Correct 💖 The answer is always… YOU. Always you.";
-};
-
- 
   // ===============================
   // MEMORY SONGS
   // ===============================
@@ -314,5 +303,3 @@ window.quizQ2Answer = function () {
   }
 
 });
-
-
