@@ -64,13 +64,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (openGiftsBtn) {
       openGiftsBtn.classList.remove("hidden");
-      openGiftsBtn.onclick = () => {
-        if (bgMusic) {
-          bgMusic.pause();
-          bgMusic.currentTime = 0;
-        }
-        giftModal.classList.remove("hidden");
-      };
+     openGiftsBtn.onclick = () => {
+  // hide main valentine card
+  document.querySelector(".container").style.display = "none";
+
+  // stop background music forever
+  if (bgMusic) {
+    bgMusic.pause();
+    bgMusic.currentTime = 0;
+  }
+
+  giftModal.classList.remove("hidden");
+};
     }
   }); // ✅ ✅ THIS WAS MISSING — FIXED
 
@@ -325,5 +330,6 @@ function quizNext() {
   }
 
 });
+
 
 
