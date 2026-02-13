@@ -188,44 +188,43 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   // GIFTS (ALL CLICKABLE ANYTIME)
   // ===============================
   window.openGift = function (type) {
-    const content = document.getElementById("giftContent");
+  const content = document.getElementById("giftContent");
 
-    if (type === "quiz") {
-      content.innerHTML = `
-        <div class="quiz-box">
-          <p class="quiz-title">Little quiz before your gift 😌</p>
-          <p class="quiz-question">What do I love the most?</p>
+  if (type === "quiz") {
+    content.innerHTML = `
+      <div class="quiz-box">
+        <p class="quiz-title">Little quiz before your gift 😌</p>
+        <p class="quiz-question">What do I love the most?</p>
 
-          <div class="quiz-options">
-            <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
-            <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
-            <button onclick="quizQ1('laddu')">Laddu 🍬</button>
-            <button onclick="quizQ1('you')">You 💖</button>
-          </div>
-
-          <p id="quizResult" class="quiz-result"></p>
-
-          <button id="nextBtn" class="gift-open-btn hidden" onclick="quizQ2()">
-            Next ➜
-          </button>
+        <div class="quiz-options">
+          <button onclick="quizQ1('aaloo')">Aaloo Parotta</button>
+          <button onclick="quizQ1('jalebi')">Jalebi</button>
+          <button onclick="quizQ1('laddu')">Laddu</button>
+          <button onclick="quizQ1('you')">You 💖</button>
         </div>
-      `;
-    }
 
-    if (type === "memories") {
-      closeModal();
-      document.body.style.overflow = "hidden";
-      memoryModal.classList.remove("hidden");
-    }
+        <p id="quizResult" class="quiz-result"></p>
 
-    if (type === "letter") {
-      closeModal();
-      document.body.style.overflow = "hidden";
-      letterModal.classList.remove("hidden");
-      playLetterMusic();
-    }
-  };
+        <button id="nextBtn" class="gift-open-btn hidden" onclick="quizQ2()">
+          Next ➜
+        </button>
+      </div>
+    `;
+  }
 
+  if (type === "memories") {
+    closeModal();
+    document.body.style.overflow = "hidden";
+    memoryModal.classList.remove("hidden");
+  }
+
+  if (type === "letter") {
+    closeModal();
+    document.body.style.overflow = "hidden";
+    letterModal.classList.remove("hidden");
+    playLetterMusic();
+  }
+};
   // ===============================
   // QUIZ LOGIC
   // ===============================
@@ -303,3 +302,4 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   }
 
 });
+
