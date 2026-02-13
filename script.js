@@ -17,24 +17,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
   const gifts = document.querySelectorAll(".gift-item");
-let currentGift = 0;
 
-// unlock first gift
-if (gifts.length) {
-  gifts[0].classList.remove("locked");
-  gifts[0].classList.add("active");
-}
+  let currentGift = 0;
 
-// unlock next gift after one is opened
-window.openGift = function (type) {
-  // existing openGift code stays SAME above this logic
-
-  if (currentGift + 1 < gifts.length) {
-    gifts[currentGift + 1].classList.remove("locked");
-    gifts[currentGift + 1].classList.add("active");
+  // unlock first gift
+  if (gifts.length) {
+    gifts[0].classList.remove("locked");
+    gifts[0].classList.add("active");
   }
-  currentGift++;
-};
 
   if (!yesBtn || !noBtn) return;
 
@@ -70,9 +60,11 @@ window.openGift = function (type) {
   // ===============================
   yesBtn.addEventListener("click", () => {
     if (message) {
-      message.innerText =
-        "Yaaaaayyyyyyyyy!!!
-Thank you sooo much for being my Valentine 🥰.\n\I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 😘).\n Love you to the moon and back, my sweet boy. Ummmaaahhh 💗\n Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…";
+      message.innerText = `Yaaaaayyyyyyyyy!!!
+Thank you sooo much for being my Valentine 🥰.
+I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 😘).
+Love you to the moon and back, my sweet boy. Ummmaaahhh 💗
+Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…`;
     }
 
     noBtn.style.display = "none";
@@ -84,20 +76,18 @@ Thank you sooo much for being my Valentine 🥰.\n\I’m officially the luckiest
 
     if (openGiftsBtn) {
       openGiftsBtn.classList.remove("hidden");
-     openGiftsBtn.onclick = () => {
-  // hide main valentine card
-  document.querySelector(".container").style.display = "none";
+      openGiftsBtn.onclick = () => {
+        document.querySelector(".container").style.display = "none";
 
-  // stop background music forever
-  if (bgMusic) {
-    bgMusic.pause();
-    bgMusic.currentTime = 0;
-  }
+        if (bgMusic) {
+          bgMusic.pause();
+          bgMusic.currentTime = 0;
+        }
 
-  giftModal.classList.remove("hidden");
-};
+        giftModal.classList.remove("hidden");
+      };
     }
-  }); // ✅ ✅ THIS WAS MISSING — FIXED
+  });
 
   // ===============================
   // FIREWORKS
@@ -177,160 +167,47 @@ Thank you sooo much for being my Valentine 🥰.\n\I’m officially the luckiest
     }, 200);
   }
 
-  function pauseBgMusic() {
-    if (bgMusic) bgMusic.pause();
-  }
-
   // ===============================
-  // MODALS
-  // ===============================
-  window.closeModal = function () {
-    giftModal.classList.add("hidden");
-    document.getElementById("giftContent").innerHTML = "";
-  };
-
-  window.closeMemory = function () {
-    memoryModal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-  };
-
-  window.closeLetter = function () {
-    letterModal.classList.add("hidden");
-    document.body.style.overflow = "auto";
-    stopLetterMusic();
-  };
-
-  // ===============================
-  // GIFTS
+  // MODALS + GIFTS
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
 
-   if (type === "quiz") {
-  content.innerHTML = `
-    <div class="quiz-box">
-      <p class="quiz-title">Little quiz before your gift 😌</p>
-
-      <p class="quiz-question">
-        What do I love the most?
-      </p>
-
-      <div class="quiz-options">
-        <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
-        <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
-        <button onclick="quizQ1('laddu')">Laddu 🍬</button>
-        <button onclick="quizQ1('you')">You 💖</button>
-      </div>
-
-      <p id="quizResult" class="quiz-result"></p>
-    </div>
-  `;
-}
-    window.quizQ1 = function(answer) {
-  const result = document.getElementById("quizResult");
-
-  if (answer === "aaloo") {
-    result.innerText =
-      "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
-  }
-
-  if (answer === "jalebi") {
-    result.innerText =
-      "Sweet choice 😌 but not sweeter than you.";
-  }
-
-  if (answer === "laddu") {
-    result.innerText =
-      "Closeee 😏 but still not the right answer.";
-  }
-
-  if (answer === "you") {
-    result.innerText =
-      "Correct 💗 Always you.\nFood is temporary. You are permanent.";
-  }
-
-  // Move to next question
-  setTimeout(() => {
-    quizNext();
-  }, answer === "you" ? 2000 : 1200);
-};
-
-function quizNext() {
-  const content = document.getElementById("giftContent");
-
-  content.innerHTML = `
-    <div class="quiz-box">
-      <p class="quiz-title">Next question 😏</p>
-
-      <p class="quiz-question">
-        <!-- YOU WILL PUT NEXT QUESTION HERE -->
-      </p>
-
-      <div class="quiz-options">
-        <!-- OPTIONS GO HERE -->
-      </div>
-
-      <p class="quiz-result"></p>
-    </div>
-  `;
-}
-
-
+    if (type === "quiz") {
+      content.innerHTML = `
+        <div class="quiz-box">
+          <p class="quiz-title">Little quiz before your gift 😌</p>
+          <p class="quiz-question">What do I love the most?</p>
+          <div class="quiz-options">
+            <button onclick="quizQ1('aaloo')">Aaloo Parotta 🥔</button>
+            <button onclick="quizQ1('jalebi')">Jalebi 🍩</button>
+            <button onclick="quizQ1('laddu')">Laddu 🍬</button>
+            <button onclick="quizQ1('you')">You 💖</button>
+          </div>
+          <p id="quizResult" class="quiz-result"></p>
+        </div>
+      `;
+    }
 
     if (type === "memories") {
-      closeModal();
+      giftModal.classList.add("hidden");
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
 
     if (type === "letter") {
-      closeModal();
+      giftModal.classList.add("hidden");
       document.body.style.overflow = "hidden";
       letterModal.classList.remove("hidden");
       playLetterMusic();
     }
-  };
 
-  // ===============================
-  // QUIZ
-  // ===============================
-  window.quizStep1 = function (choice) {
-    const result = document.getElementById("quizResult");
-
-    result.innerText =
-      choice === "me"
-        ? "Correct 💗 I fell first… and I still fall every day."
-        : "Haha 😌 maybe… but I fell harder.";
-
-    setTimeout(() => {
-      result.innerHTML += `
-        <br><br>
-        <strong>Next question 😏</strong><br>
-        What do I love most about you?<br><br>
-        <button onclick="quizEnd()">Everything 💕</button>
-        <button onclick="quizEnd()">Your smile 😌</button>
-      `;
-    }, 1200);
-  };
-
-  window.quizEnd = function () {
-    document.getElementById("quizResult").innerHTML =
-      "Correct 💖 The answer is always… YOU. Always you.";
-  };
-
-  // ===============================
-  // MEMORY SONGS
-  // ===============================
-  let currentSong = null;
-
-  window.playMemorySong = function (num) {
-    if (currentSong) {
-      currentSong.pause();
-      currentSong.currentTime = 0;
+    // unlock next gift
+    if (currentGift + 1 < gifts.length) {
+      gifts[currentGift + 1].classList.remove("locked");
+      gifts[currentGift + 1].classList.add("active");
     }
-    currentSong = new Audio(`songs/song${num}.mp3`);
-    currentSong.volume = 0.6;
-    currentSong.play();
+    currentGift++;
   };
 
   // ===============================
@@ -343,15 +220,4 @@ function quizNext() {
     letterMusic.play();
   }
 
-  function stopLetterMusic() {
-    if (!letterMusic) return;
-    letterMusic.pause();
-    letterMusic.currentTime = 0;
-  }
-
 });
-
-
-
-
-
