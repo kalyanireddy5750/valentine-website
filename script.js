@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
   yesBtn.addEventListener("click", () => {
     if (message) {
       message.innerText = `Yaaaaayyyyyyyyy!!!
-Thank you sooo much for being my Valentine 🫂.
-I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 😘).
+Thank you sooo much for being my Valentine 🥰.
+I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 💗).
 Love you to the moon and back, my sweet boy. Ummmaaahhh 😘
 Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }
@@ -167,8 +167,31 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }, 200);
   }
 
+  function pauseBgMusic() {
+    if (bgMusic) bgMusic.pause();
+  }
+
   // ===============================
-  // MODALS + GIFTS
+  // MODALS
+  // ===============================
+  window.closeModal = function () {
+    giftModal.classList.add("hidden");
+    document.getElementById("giftContent").innerHTML = "";
+  };
+
+  window.closeMemory = function () {
+    memoryModal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+  };
+
+  window.closeLetter = function () {
+    letterModal.classList.add("hidden");
+    document.body.style.overflow = "auto";
+    stopLetterMusic();
+  };
+
+  // ===============================
+  // GIFTS
   // ===============================
   window.openGift = function (type) {
     const content = document.getElementById("giftContent");
@@ -190,24 +213,102 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }
 
     if (type === "memories") {
-      giftModal.classList.add("hidden");
+      closeModal();
       document.body.style.overflow = "hidden";
       memoryModal.classList.remove("hidden");
     }
 
     if (type === "letter") {
-      giftModal.classList.add("hidden");
+      closeModal();
       document.body.style.overflow = "hidden";
       letterModal.classList.remove("hidden");
       playLetterMusic();
     }
 
-    // unlock next gift
     if (currentGift + 1 < gifts.length) {
       gifts[currentGift + 1].classList.remove("locked");
       gifts[currentGift + 1].classList.add("active");
     }
     currentGift++;
+  };
+
+  // ===============================
+  // QUIZ
+  // ===============================
+  window.quizQ1 = function (answer) {
+    const result = document.getElementById("quizResult");
+
+    if (answer === "aaloo") {
+      result.innerText = "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
+    }
+
+    if (answer === "jalebi") {
+      result.innerText = "Sweet choice 😌 but not sweeter than you.";
+    }
+
+    if (answer === "laddu") {
+      result.innerText = "Closeee 😏 but still not the right answer.";
+    }
+
+    if (answer === "you") {
+      result.innerText = "Correct 💗 Always you.\nFood is temporary. You are permanent.";
+    }
+
+    setTimeout(() => {
+      quizNext();
+    }, answer === "you" ? 2000 : 1200);
+  };
+
+  function quizNext() {
+    const content = document.getElementById("giftContent");
+
+    content.innerHTML = `
+      <div class="quiz-box">
+        <p class="quiz-title">Next question 😏</p>
+        <p class="quiz-question"></p>
+        <div class="quiz-options"></div>
+        <p class="quiz-result"></p>
+      </div>
+    `;
+  }
+
+  window.quizStep1 = function (choice) {
+    const result = document.getElementById("quizResult");
+
+    result.innerText =
+      choice === "me"
+        ? "Correct 💗 I fell first… and I still fall every day."
+        : "Haha 😌 maybe… but I fell harder.";
+
+    setTimeout(() => {
+      result.innerHTML += `
+        <br><br>
+        <strong>Next question 😏</strong><br>
+        What do I love most about you?<br><br>
+        <button onclick="quizEnd()">Everything 💕</button>
+        <button onclick="quizEnd()">Your smile 😌</button>
+      `;
+    }, 1200);
+  };
+
+  window.quizEnd = function () {
+    document.getElementById("quizResult").innerHTML =
+      "Correct 💖 The answer is always… YOU. Always you.";
+  };
+
+  // ===============================
+  // MEMORY SONGS
+  // ===============================
+  let currentSong = null;
+
+  window.playMemorySong = function (num) {
+    if (currentSong) {
+      currentSong.pause();
+      currentSong.currentTime = 0;
+    }
+    currentSong = new Audio(`songs/song${num}.mp3`);
+    currentSong.volume = 0.6;
+    currentSong.play();
   };
 
   // ===============================
@@ -220,5 +321,10 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     letterMusic.play();
   }
 
-});
+  function stopLetterMusic() {
+    if (!letterMusic) return;
+    letterMusic.pause();
+    letterMusic.currentTime = 0;
+  }
 
+});
