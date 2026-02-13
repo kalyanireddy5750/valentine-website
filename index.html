@@ -47,13 +47,24 @@
   <!-- 🎁 Gift Popup -->
   <div id="giftModal" class="modal hidden">
     <div class="modal-content">
-      <h3>Something for You</h3>
+    
 
-      <div class="gift-grid">
-        <img src="photos/always.jpeg" class="gift-img" onclick="openGift('quiz')" alt="">
-        <img src="photos/forever.jpeg" class="gift-img" onclick="openGift('memories')" alt="">
-        <img src="photos/us.jpeg" class="gift-img" onclick="openGift('letter')" alt="">
-      </div>
+     <div class="gift-grid">
+  <div>
+    <img src="photos/always.jpeg" class="gift-img">
+    <button onclick="openGift('quiz')">Open</button>
+  </div>
+
+  <div>
+    <img src="photos/forever.jpeg" class="gift-img">
+    <button onclick="openGift('memories')">Open</button>
+  </div>
+
+  <div>
+    <img src="photos/us.jpeg" class="gift-img">
+    <button onclick="openGift('letter')">Open</button>
+  </div>
+</div>
 
       <div id="giftContent"></div>
 
@@ -93,4 +104,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
