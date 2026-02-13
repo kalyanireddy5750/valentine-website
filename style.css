@@ -215,6 +215,7 @@ canvas {
   gap: 14px;
   justify-content: center;
 }
+
 .gift-grid > div {
   display: flex;
   flex-direction: column;
@@ -228,12 +229,48 @@ canvas {
   border-radius: 14px;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gift-img:hover {
   transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 143, 163, 0.45);
 }
+
+/* Gift open button */
+.gift-open-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #ff8fa3;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s;
+}
+
+.gift-open-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 143, 163, 0.45);
+}
+/* Gift open button */
+.gift-open-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  background: #ff8fa3;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s;
+}
+
+.gift-open-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 143, 163, 0.45);
+}
+
+
 /* Gift item wrapper */
 .gift-item {
   display: flex;
@@ -369,6 +406,17 @@ canvas {
   .container {
     margin-right: 0;
   }
+}
+/* Locked gift */
+.gift-item.locked {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+/* Active gift */
+.gift-item.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 
