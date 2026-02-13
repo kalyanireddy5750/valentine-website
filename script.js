@@ -16,15 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openGiftsBtn = document.getElementById("openGiftsBtn");
   const letterMusic = document.getElementById("letterMusic");
-  const gifts = document.querySelectorAll(".gift-item");
-
-  let currentGift = 0;
-
-  // unlock first gift
-  if (gifts.length) {
-    gifts[0].classList.remove("locked");
-    gifts[0].classList.add("active");
-  }
+  
 
   if (!yesBtn || !noBtn) return;
 
@@ -208,6 +200,10 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
             <button onclick="quizQ1('you')">You 💖</button>
           </div>
           <p id="quizResult" class="quiz-result"></p>
+          <!-- NEXT BUTTON (hidden initially) -->
+      <button id="nextBtn" class="gift-open-btn hidden" onclick="quizQ2()">
+        Next ➜
+      </button>
         </div>
       `;
     }
@@ -225,77 +221,67 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
       playLetterMusic();
     }
 
-    if (currentGift + 1 < gifts.length) {
-      gifts[currentGift + 1].classList.remove("locked");
-      gifts[currentGift + 1].classList.add("active");
-    }
-    currentGift++;
+   
   };
 
   // ===============================
   // QUIZ
   // ===============================
   window.quizQ1 = function (answer) {
-    const result = document.getElementById("quizResult");
+  const result = document.getElementById("quizResult");
+  const nextBtn = document.getElementById("nextBtn");
 
-    if (answer === "aaloo") {
-      result.innerText = "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
-    }
-
-    if (answer === "jalebi") {
-      result.innerText = "Sweet choice 😌 but not sweeter than you.";
-    }
-
-    if (answer === "laddu") {
-      result.innerText = "Closeee 😏 but still not the right answer.";
-    }
-
-    if (answer === "you") {
-      result.innerText = "Correct 💗 Always you.\nFood is temporary. You are permanent.";
-    }
-
-    setTimeout(() => {
-      quizNext();
-    }, answer === "you" ? 2000 : 1200);
-  };
-
-  function quizNext() {
-    const content = document.getElementById("giftContent");
-
-    content.innerHTML = `
-      <div class="quiz-box">
-        <p class="quiz-title">Next question 😏</p>
-        <p class="quiz-question"></p>
-        <div class="quiz-options"></div>
-        <p class="quiz-result"></p>
-      </div>
-    `;
+  if (answer === "aaloo") {
+    result.innerText =
+      "Hmm 😋 tempting… but I don’t crave it the way I crave you.";
   }
 
-  window.quizStep1 = function (choice) {
-    const result = document.getElementById("quizResult");
-
+  if (answer === "jalebi") {
     result.innerText =
-      choice === "me"
-        ? "Correct 💗 I fell first… and I still fall every day."
-        : "Haha 😌 maybe… but I fell harder.";
+      "Sweet choice 😌 but not sweeter than you.";
+  }
 
-    setTimeout(() => {
-      result.innerHTML += `
-        <br><br>
-        <strong>Next question 😏</strong><br>
-        What do I love most about you?<br><br>
-        <button onclick="quizEnd()">Everything 💕</button>
-        <button onclick="quizEnd()">Your smile 😌</button>
-      `;
-    }, 1200);
-  };
+  if (answer === "laddu") {
+    result.innerText =
+      "Closeee 😏 but still not the right answer.";
+  }
 
-  window.quizEnd = function () {
-    document.getElementById("quizResult").innerHTML =
-      "Correct 💖 The answer is always… YOU. Always you.";
-  };
+  if (answer === "you") {
+    result.innerText =
+      "Correct 💗 Always you.\nFood is temporary. You are permanent.";
+  }
 
+  // show NEXT button after answering
+  nextBtn.classList.remove("hidden");
+};
+  window.quizQ2 = function () {
+  const content = document.getElementById("giftContent");
+
+  content.innerHTML = `
+    <div class="quiz-box">
+      <p class="quiz-title">Next question 😏</p>
+
+      <p class="quiz-question">
+        What do I love most about you?
+      </p>
+
+      <div class="quiz-options">
+        <button onclick="quizQ2Answer()">Your smile 😊</button>
+        <button onclick="quizQ2Answer()">Your care 💗</button>
+        <button onclick="quizQ2Answer()">Your everything 💕</button>
+      </div>
+
+      <p id="quizResult" class="quiz-result"></p>
+    </div>
+  `;
+};
+
+window.quizQ2Answer = function () {
+  document.getElementById("quizResult").innerText =
+    "Correct 💖 The answer is always… YOU. Always you.";
+};
+
+ 
   // ===============================
   // MEMORY SONGS
   // ===============================
@@ -328,3 +314,4 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
   }
 
 });
+
