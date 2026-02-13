@@ -61,10 +61,10 @@ document.addEventListener("DOMContentLoaded", () => {
   yesBtn.addEventListener("click", () => {
     if (message) {
       message.innerText = `Yaaaaayyyyyyyyy!!!
-Thank you sooo much for being my Valentine 🥰.
+Thank you sooo much for being my Valentine 🫂.
 I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 😘).
-Love you to the moon and back, my sweet boy. Ummmaaahhh 💗
-Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…`;
+Love you to the moon and back, my sweet boy. Ummmaaahhh 😘
+Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…🥹`;
     }
 
     noBtn.style.display = "none";
@@ -221,3 +221,4 @@ Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…`;
   }
 
 });
+
