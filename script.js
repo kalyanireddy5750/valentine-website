@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Really sure...??? ☹️",
     "Take a moment and think 👿",
     "You might regret this 🔪",
-    "I’ll wait…"
+    "Aakhri moka hai soch lo...mein murder nahii karnaa chaahthii aaj"
   ];
 
   noBtn.addEventListener("click", () => {
@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   yesBtn.addEventListener("click", () => {
     if (message) {
       message.innerText =
-        "I knew it.\n\nCongratulations… you’re officially the luckiest man on this planet to be my Valentine.\nLove you to the moon and back, my sweet boy. Ummmaaahhh 💗";
+        "Yaaaaayyyyyyyyy!!!
+Thank you sooo much for being my Valentine 🥰.\n\I’m officially the luckiest girl on this planet to have a cutuuuuu like you by my side (seriously, how did I get this lucky? 😘).\n Love you to the moon and back, my sweet boy. Ummmaaahhh 💗\n Pata hi nahi chala aap kab HAMAARI JAAN ban gaye…";
     }
 
     noBtn.style.display = "none";
@@ -330,6 +331,7 @@ function quizNext() {
   }
 
 });
+
 
 
 
