@@ -178,7 +178,6 @@ canvas {
 
 /* ===== Gift 3 Fullscreen ===== */
 #letterModal {
- display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -420,6 +419,7 @@ canvas {
   opacity: 1;
   pointer-events: auto;
 }
+
 
 
 
