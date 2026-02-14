@@ -178,7 +178,9 @@ canvas {
 
 /* ===== Gift 3 Fullscreen ===== */
 #letterModal {
-  background: #000;
+ display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #letterModal .modal-content {
@@ -186,11 +188,14 @@ canvas {
   height: 85vh;
   max-width: 900px;
   max-height: none;
-  padding: 10px;
-  border-radius: 16px;
-  background: #000;
-    justify-content: center;
-  align-items: center;
+ transform: translateX(50%);
+  padding: 8px 22px;
+  border-radius: 18px;
+  border: none;
+  background: #f4b6c2;
+  cursor: pointer;
+  z-index: 10000;
+}
 }
 
 #letterModal iframe {
@@ -420,6 +425,7 @@ canvas {
   opacity: 1;
   pointer-events: auto;
 }
+
 
 
 
